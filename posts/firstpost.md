@@ -1,7 +1,7 @@
 ---
-title: Hello World
-date: 2022-10-28
-summary: Hey look Ma I made a blog!
+title: Premier Article
+date: 2022-10-28T10:00:00Z
+summary: Hey j'ai fais un blog! (avec juste du lorem ipsum dedans)
 tags:
   - misc
 ---

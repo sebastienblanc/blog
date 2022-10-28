@@ -1,10 +1,12 @@
 :root {
-	--primary: #A60202;
-	--secondary: #02a602;
-	--background: #000;
-	--soft-background: #1C1C19;
-	--primary-text-color: #FFFFFF;
+	--primary: #cc0404;
+	--secondary: #da720a;
+	--background: #131311;
+	--accent-background: #000;
+	--primary-text-color: #FFF;
 	--text-color-on-secondary: #000;
+	--text-color-on-soft: #FFF;
+	--soft-color: #60605e;
 }
 
 *, *:before, *:after {
@@ -119,8 +121,7 @@ header nav li {
 }
 
 header nav li a {
-	padding: .25em .5em;
-	border-radius: .25em;
+	padding: .5em;
 }
 
 header nav li a[href]:not(:hover) {
@@ -128,15 +129,14 @@ header nav li a[href]:not(:hover) {
 }
 
 header nav li a[data-current="current item"] {
-	background-color: var(--soft-background);
+	background-color: var(--accent-background);
 }
 
 /* Posts List */
 article {
 	margin-bottom: 1em;
 	padding-bottom: 1em;
-	border-bottom: 1px solid #eee;
-	border-bottom: 1px solid var(--secondary);
+	border-bottom: 1px solid var(--soft-color);
 }
 
 main > section > article > * {
@@ -151,21 +151,15 @@ a[rel="tag"]:visited {
   vertical-align: text-top;
   text-transform: uppercase;
 	letter-spacing: .1em;
-  font-size: .625em;
+  font-size: .6em;
   padding: 0 .5em;
 	line-height: 2em;
 	height: 2em;
-  border: 1px solid var(--secondary);
-	background-color: var(--secondary);
-	color: var(--text-color-on-secondary);
-  border-radius: .25em;
+	background-color: var(--soft-color);
+	color: var(--text-color-on-soft);
+	border-radius: .25em;
   text-decoration: none;
 	margin: 0 .5em .5em 0;
-	font-weight: 600;
-}
-
-a[rel="tag"]:hover {
-	border: 1px solid var(--primary);
 }
 
 a[rel="tag"]:last-child {
@@ -190,7 +184,7 @@ button {
   margin-bottom: 1em;
 	font-size: 1rem;
 	font-family: "Avenir", "Avenir Next", sans-serif;
-	background-color: var(--soft-background);
+	background-color: var(--accent-background);
 }
 
 input,
@@ -207,8 +201,13 @@ button {
 }
 
 button.secondary {
-	border: 1px solid var(--secondary);
 	background-color: var(--secondary);
+	color: var(--text-color-on-soft);
+}
+
+button.soft {
+	background-color: var(--soft-color);
+	color: var(--text-color-on-soft);
 }
 
 @media screen and (min-width:768px) {

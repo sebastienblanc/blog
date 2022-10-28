@@ -1,12 +1,14 @@
 ---
-title: Hello Again
+title: Second Article
 metaDescription: This is a sample meta description. If one is not present in
   your page/post's front matter, the default metadata.desciption will be used
   instead.
-date: 2022-10-28
-summary: Oh, here is another hello world post!
+date: 2022-10-28T10:01:00Z
+summary: Oh, encore un article lorem ipsum pour tester!
 tags:
   - misc
+  - hello world
+  - placeholder
 ---
 ## Illa fuit ibat omnia manus nymphae tecta
 

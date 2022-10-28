@@ -215,3 +215,8 @@ button.soft {
 		font-size: 1.1rem;
 	}
 }
+
+.post__footer {
+	display: flex;
+	justify-content: space-between;
+}

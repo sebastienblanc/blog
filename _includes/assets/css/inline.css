@@ -1,7 +1,9 @@
 :root {
-	--primary: blue;
-	--secondary: white;
-	--background: #FFF0EB;
+	--primary: #A60202;
+	--secondary: #02a602;
+	--background: #000;
+	--soft-background: #1C1C19;
+	--primary-text-color: #FFFFFF;
 }
 
 *, *:before, *:after {
@@ -20,10 +22,13 @@ body {
 	height: 100vh;
 	grid-template-rows: auto 1fr auto;
 	background-color: var(--background);
+	max-width: 50em;
+	margin: 0 auto;
+	color: var(--primary-text-color);
 }
 
 main {
-	max-width: 37.5em;
+	text-align: justify;
 }
 
 p,
@@ -79,12 +84,22 @@ pre {
 }
 
 /* Header Logo (style as h2) */
+@font-face {
+	font-family: 'Kremlin';
+	src: url('/static/fonts/Kremlin.woff2') format('woff2'),
+			url('/static/fonts/Kremlin.woff') format('woff');
+	font-weight: normal;
+	font-style: normal;
+	font-display: fallback;
+}
+
 header > em {
 	display: block;
 	font-size: 2em;
 	margin: .67em 0;
 	font-weight: bold;
 	font-style: normal;
+	font-family: 'Kremlin';
 }
 
 /* Header Nav */
@@ -112,7 +127,7 @@ header nav li a[href]:not(:hover) {
 }
 
 header nav li a[data-current="current item"] {
-	background-color: white;
+	background-color: var(--soft-background);
 }
 
 /* Posts List */
@@ -149,8 +164,6 @@ a[rel="tag"]:visited {
 
 a[rel="tag"]:hover {
 	border: 1px solid var(--primary);
-	background-color: var(--primary);
-	color: var(--secondary);
 }
 
 a[rel="tag"]:last-child {
@@ -175,18 +188,25 @@ button {
   margin-bottom: 1em;
 	font-size: 1rem;
 	font-family: "Avenir", "Avenir Next", sans-serif;
+	background-color: var(--soft-background);
 }
 
 input,
 textarea {
 	border: 1px solid black;
+	color: var(--primary-text-color);
 }
 
 button {
 	border: 1px solid var(--primary);
 	background-color: var(--primary);
-	color: var(--secondary);
+	color: var(--primary-text-color);
 	cursor: pointer;
+}
+
+button.secondary {
+	border: 1px solid var(--secondary);
+	background-color: var(--secondary);
 }
 
 @media screen and (min-width:768px) {

@@ -1,12 +1,17 @@
 ---
-title: Hello World
+title: Hello Again
+metaDescription: This is a sample meta description. If one is not present in
+  your page/post's front matter, the default metadata.desciption will be used
+  instead.
 date: 2022-10-28
 author: N-031
-summary: Hey look Ma I made a blog!
+summary: Oh, here is another hello world post!
 tags:
   - misc
 ---
 ## Illa fuit ibat omnia manus nymphae tecta
+
+![A sample inlined image](https://source.unsplash.com/random/600x400)
 
 Lorem markdownum triumpha, *sua* veterum! Esse potiere. Quam petiisse, feritatis
 **nec** formae, liber Periclymeni gestum iunxit; nam movens pars sacra canum,

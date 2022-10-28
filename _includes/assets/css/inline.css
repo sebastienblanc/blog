@@ -4,6 +4,7 @@
 	--background: #000;
 	--soft-background: #1C1C19;
 	--primary-text-color: #FFFFFF;
+	--text-color-on-secondary: #000;
 }
 
 *, *:before, *:after {
@@ -156,10 +157,11 @@ a[rel="tag"]:visited {
 	height: 2em;
   border: 1px solid var(--secondary);
 	background-color: var(--secondary);
-	color: var(--primary);
+	color: var(--text-color-on-secondary);
   border-radius: .25em;
   text-decoration: none;
 	margin: 0 .5em .5em 0;
+	font-weight: 600;
 }
 
 a[rel="tag"]:hover {

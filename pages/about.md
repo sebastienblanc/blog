@@ -6,7 +6,7 @@ eleventyNavigation:
   order: 2
 ---
 
-Quelques observations sur le monde par le prisme de l'anarcho-stalino-islamo-gauchisme de la pire espèce.
+Quelques observations sur le monde par le prisme du wokisme anarcho-stalino-islamo-gauchiste de la pire espèce.
 
 Ou alors c'est juste un point de vue tout ce qu'il y a de plus normal, et le monde est devenu complètement malade. À vous de voir.
 

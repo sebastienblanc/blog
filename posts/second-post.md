@@ -4,7 +4,6 @@ metaDescription: This is a sample meta description. If one is not present in
   your page/post's front matter, the default metadata.desciption will be used
   instead.
 date: 2022-10-28
-author: N-031
 summary: Oh, here is another hello world post!
 tags:
   - misc

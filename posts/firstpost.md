@@ -1,7 +1,6 @@
 ---
 title: Hello World
 date: 2022-10-28
-author: N-031
 summary: Hey look Ma I made a blog!
 tags:
   - misc

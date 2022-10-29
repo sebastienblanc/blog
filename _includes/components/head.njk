@@ -1,17 +1,42 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>{{ renderData.title or title or metadata.title }}</title>
-  <meta name="description" content="{{ metaDescription or renderData.metaDescription or metadata.description }}">
+
+  {# icons #}
   <link rel="apple-touch-icon" sizes="180x180" href="/static/img/apple-touch-icon.png">
   <link rel="icon" type="image/png" sizes="32x32" href="/static/img/favicon-32x32.png">
   <link rel="icon" type="image/png" sizes="16x16" href="/static/img/favicon-16x16.png">
   <link rel="mask-icon" href="/static/img/safari-pinned-tab.svg" color="#5bbad5">
 
+  <meta name="generator" content="eleventy">
+
+  {# SEO... #}
+  <title>{{ title and title + ' • ' }}{{ section_title + ' • ' if section_title else ''  }}{{ website.title }}</title>
+
+  <meta name="description" content="{{ (description or summary or website.description ) | truncate(150) }}">
+  <meta name="keywords" content="{{ keywords or website.keywords }}, {{ tags }}, {{ website.title }}">
+
+  {# OpenGraph Social Card #}
+  <meta property="og:title" content="{{ title or website.title}}">
+  <meta property="og:description" content="{{ description or summary or website.description }}">
+  {% if image or website.image -%}<meta property="og:image" content="{{ env.BASE_URL }}{% SocialImagePath image or website.image %}">{%- endif %}
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="{{ env.BASE_URL }}{{ page.url }}">
+  <meta property="og:site_name" content="{{ website.title }}">
+
+  {# Twitter Social Card #}
+  <meta name="twitter:title" content="{{ title }}">
+  <meta name="twitter:description" content="{{ description or summary or website.description }}">
+  {% if image or website.image -%}<meta property="twitter:image" content="{{ env.BASE_URL }}{% SocialImagePath image or website.image %}">{%- endif %}
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:url" content="{{ env.BASE_URL }}{{ page.url }}">
+  <meta name="twitter:site" content="{{ website.twitter_handle }}">
   {% set css %}
-    {% include "assets/css/inline.css" %}
+  {% include "assets/css/inline.css" %}
   {% endset %}
-  <style>{{ css | cssmin | safe }}</style>
+  <style>
+    {{css | cssmin | safe}}
+  </style>
   {# {% set js %}
     {% include "assets/js/inline.js" %}
   {% endset %}

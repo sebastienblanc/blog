@@ -25,28 +25,31 @@ cd n031-blog
 ### 3. Install dependencies locally
 
 ```bash
-npm install @11ty/eleventy
+npm install
 ```
 
 ### 4. Run Eleventy (builds the site)
 
 ```bash
-npx @11ty/eleventy
+npm run build
 ```
 
 Or build automatically when a template changes:
-```
-npx @11ty/eleventy --watch
+
+```bash
+npm run watch
 ```
 
 Or build and host locally for local development:
-```
-npx @11ty/eleventy --serve
+
+```bash
+npm start
 ```
 
 Or in debug mode:
-```
-DEBUG=* npx @11ty/eleventy
+
+```bash
+npm run debug
 ```
 
 ## Bug reports, feature requests, etc

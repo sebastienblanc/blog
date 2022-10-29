@@ -82,18 +82,22 @@ module.exports = function(eleventyConfig) {
   eleventyConfig.addPassthroughCopy("_includes/assets/css/inline.css");
 
   /* Markdown Plugins */
-  let markdownIt = require("markdown-it");
-  let markdownItAnchor = require("markdown-it-anchor");
-  let options = {
+  const markdownIt = require("markdown-it");
+  const markdownItAnchor = require("markdown-it-anchor");
+  const markdownItEmoji = require('markdown-it-emoji');
+
+  const mdOptions = {
+    html: true,
     breaks: false,
     linkify: true
   };
-  let opts = {
+  const mdAnchorsOptions = {
     permalink: false
   };
 
-  eleventyConfig.setLibrary("md", markdownIt(options)
-    .use(markdownItAnchor, opts)
+  eleventyConfig.setLibrary("md", markdownIt(mdOptions)
+    .use(markdownItAnchor, mdAnchorsOptions)
+    .use(markdownItEmoji)
   );
 
   return {

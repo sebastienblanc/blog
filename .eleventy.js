@@ -182,6 +182,8 @@ module.exports = function (eleventyConfig) {
     return [...postsWithComments];
   });
 
+  eleventyConfig.ignores.add("CODE_OF_CONDUCT.md");
+
   return {
     templateFormats: ['md', 'njk', 'liquid'],
 

@@ -276,6 +276,12 @@ button.soft {
 	justify-content: space-between;
 }
 
+.blog__footer {
+	display: flex;
+	justify-content: center;
+	gap: 1rem;
+}
+
 blockquote {
 	border-left: 5px solid var(--bloquote-border-color);
 	background-color: var(--bloquote-bg-color);

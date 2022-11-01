@@ -1,11 +1,23 @@
 ---
 layout: layouts/base.njk
+pagination:
+  data: collections.post
+  size: 3
+  reverse: true
+permalink: "/blog/{% if pagination.pageNumber > 0 %}page-{{ pagination.pageNumber | plus: 1 }}/{% endif %}index.html"
 section: /
-permalink: /index.html
 ---
 <h1>{{ title }}</h1>
 
 {{ layoutContent | safe }}
 
-{% set postslist = collections.post %}
+{% set postslist = pagination.items %}
 {% include "components/postslist.njk" %}
+
+<nav class="blog__footer">
+  {% if pagination.href.previous %}<div><a href="{{ pagination.href.previous }}">←</a></div>{% endif %}
+  {%- for pageEntry in pagination.pages %}
+  <div>{% if page.url == pagination.hrefs[ loop.index0 ] %}{{ loop.index }}{% else %}<a href="{{ pagination.hrefs[ loop.index0 ] }}">{{ loop.index }}</a>{% endif %}</div>
+  {%- endfor %}
+  {% if pagination.href.next %}<div><a href="{{ pagination.href.next }}">→</a></div>{% endif %}
+</nav>

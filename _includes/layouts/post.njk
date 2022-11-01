@@ -4,9 +4,12 @@ section: post
 ---
 <article>
   <h1>{{ title }}</h1>
-  <p>
+  <p class="post__header">
     <small>
-      <time datetime="{{ page.date | machineDate }}">{{ page.date | readableDate }}</time>
+      Parution : <time datetime="{{ page.date | machineDate }}">{{ page.date | readableDate }}</time>
+    </small>
+    <small>
+      Lecture : {{layoutContent | timeToRead}}
     </small>
   </p>
 

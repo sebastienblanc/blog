@@ -4,6 +4,7 @@ const UglifyJS = require('uglify-js');
 const htmlmin = require('html-minifier');
 const eleventyNavigationPlugin = require('@11ty/eleventy-navigation');
 const Image = require('@11ty/eleventy-img');
+const timeToRead = require('eleventy-plugin-time-to-read');
 const { Transform } = require('readable-stream');
 
 require('dotenv').config();
@@ -20,8 +21,14 @@ function fixSrcPath(url) {
 }
 
 module.exports = function (eleventyConfig) {
+  // plugins
+
   // Eleventy Navigation https://www.11ty.dev/docs/plugins/navigation/
   eleventyConfig.addPlugin(eleventyNavigationPlugin);
+
+  eleventyConfig.addPlugin(timeToRead, {
+    language: 'fr'
+  });
 
   // Configuration API: use eleventyConfig.addLayoutAlias(from, to) to add
   // layout aliases! Say you have a bunch of existing content using

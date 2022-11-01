@@ -17,7 +17,7 @@ tags:
 Que dit le règlement de l'AN concernant la nomination du président de la commission des finances, et comment ça marche ?
 {% tweet-link "1539039452135399430" %}
 
-> **[Article 39.3 du règlement de l’Assemblée Nationale](https://assemblee-nationale.fr/dyn/15/divers/texte_reference/02_reglement_assemblee_nationale#D_Article_39)**
+> **[Article 39.3 du règlement de l’Assemblée Nationale](https://www.assemblee-nationale.fr/dyn/15/divers/texte_reference/02_reglement_assemblee_nationale#D_Article_39)**
 >
 > Ne peut être élu à la présidence de la Commission des finances, de l’économie générale et du contrôle budgétaire qu’un député appartenant à un groupe s’étant déclaré d’opposition.
 

@@ -230,6 +230,12 @@ form label {
   display: none;
 }
 
+input,
+textarea,
+button {
+  margin-bottom: 1em;
+}
+
 input:not([type="checkbox"]),
 textarea,
 button {

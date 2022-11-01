@@ -120,17 +120,17 @@ la communauté.
 Ce code de conduite est adapté du
 [Contributor Covenant](https://www.contributor-covenant.org), version 2.0,
 disponible à
-[https://www.contributor-covenant.org/version/2/0/code_of_conduct.html][v2.0].
+[https://www.contributor-covenant.org/version/2/0/code_of_conduct/][v2.0].
 
 Les Directives d'application ont été inspirées par le
 [Code of conduct enforcement ladder][mozilla coc] de Mozilla.
 
 Pour obtenir des réponses aux questions courantes sur ce code de conduite, consultez la FAQ à
-[https://www.contributor-covenant.org/faq][faq]. Les traductions sont disponibles
-sur [https://www.contributor-covenant.org/translations][translations].
+[https://www.contributor-covenant.org/faq/][faq]. Les traductions sont disponibles
+sur [https://www.contributor-covenant.org/translations/][translations].
 
 [contactform]: https://n31.netlify.app/contact/
-[v2.0]: https://www.contributor-covenant.org/version/2/0/code_of_conduct.html
-[mozilla coc]: https://github.com/mozilla/diversity
-[faq]: https://www.contributor-covenant.org/faq
-[translations]: https://www.contributor-covenant.org/translations
+[v2.0]: https://www.contributor-covenant.org/version/2/0/code_of_conduct/
+[mozilla coc]: https://github.com/mozilla/inclusion
+[faq]: https://www.contributor-covenant.org/faq/
+[translations]: https://www.contributor-covenant.org/translations/

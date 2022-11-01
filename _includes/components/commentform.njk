@@ -8,6 +8,12 @@
     <label for="message">Votre message</label>
     <textarea id="message" name="fields[message]" placeholder="Écrivez un truc interessant..." rows="7" required></textarea>
 
+    <fieldset class="consent">
+      <input id="consent" type="checkbox" name="consent" required>
+      <label for="consent">J'ai lu le <a href="/coc">code de conduite</a> et l'ai respecté en écrivant ce commentaire.</label>
+    </fieldset>
+
+
   <input type="hidden" name="fields[post]" value="{{ page.fileSlug }}">
   <input type="hidden" name="options[redirect]" value="/comment-submitted">
   <input type="hidden" name="options[redirectError]" value="/comment-error">

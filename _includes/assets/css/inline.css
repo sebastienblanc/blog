@@ -230,7 +230,7 @@ form label {
   display: none;
 }
 
-input,
+input:not([type="checkbox"]),
 textarea,
 button {
   width: 100%;
@@ -241,7 +241,7 @@ button {
 	background-color: var(--accent-background);
 }
 
-input,
+input:not([type="checkbox"]),
 textarea {
 	border: 1px solid black;
 	color: var(--primary-text-color);
@@ -310,4 +310,17 @@ blockquote p:last-child {
 
 .comment__header {
 	margin-bottom: 1rem;
+}
+
+fieldset {
+	border: none;
+}
+
+fieldset.consent {
+	display: flex;
+	gap: 1rem;
+}
+
+fieldset.consent label {
+	display: inline;
 }

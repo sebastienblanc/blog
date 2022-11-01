@@ -60,3 +60,35 @@ Ou alors c'est juste moi... Mais je ne me souviens plus d'une seule journée, d'
 {% tweet-link "1545456072319713280" %}
 
 > Un [second thread de commentaires](https://twitter.com/ygrenzinger/status/1545457735436849152) a également été posté.
+
+## Addendum
+
+Comme l'impression que mes interactions Twitter aggravent ma perception du problème... sans pour autant en être la source
+
+Comme l'impression qu'on ne fait plus que recracher des arguments fallacieux répétés ad nauseam. Malhonnêteté, obscurantisme, fainéantise ?
+Un peu des 3 ?
+{% tweet-link "1547394498581434371" %}
+
+❌ Twitter ❌ Discord ❌ Le bistro ❌  Les amis ❌ Les partis politiques ❌  Les forums ❌  Les assos ...
+
+Vraiment, faut aller où pour avoir des discussions honnêtes et éclairées maintenant ? C'est encore possible au moins ?
+{% tweet-link "1547395306240761857" %}
+
+> **Commentaire**
+>
+> Il est peut être juste temps que tu changes de cercles de connaissances/amis :hugs: :slightly_smiling_face:
+> {% tweet-link "1547396508034686977" %}
+ 
+Déjà fait en grande partie justement (et pour tout dire ça en a éliminé vraiment bcp).
+
+Certain·e·s nouveau·elle·s "potentiel·le·s" arrivent aussi pas mal, en partie via Twitter, et ça fait du bien 🤗
+
+J'ai surtout une énorme nostalgie de ces soirées à "changer le monde".
+{% tweet-link "1547397842213511168" %}
+
+Le désespoir s'est aussi installé chez les "gens honnêtes", avec une forte dépolitisation et rejet. Donc les "débats" dépassent rarement le partage d'expérience et les constats déprimants.
+{% tweet-link "1547398247009984513" %}
+
+<video autoplay loop muted playsinline src="https://media.tenor.com/kgJyhBoqod0AAAPo/bill-nye-party-horn.mp4"></video> {% tweet-link "1547416652484157442" %}
+
+> Un autre [thread](https://twitter.com/bartlettstarman/status/1547472698393100290) à également été publié en réponse à cet addendum.

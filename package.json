@@ -26,13 +26,14 @@
     "dotenv": "^16.0.3",
     "luxon": "^3.0.4",
     "markdown-it": "^13.0.1",
-    "markdown-it-anchor": "^8.6.5"
+    "markdown-it-anchor": "^8.6.5",
+    "netlify-plugin-checklinks": "^4.1.1"
   },
   "dependencies": {
-    "@staticman/core": "^1.7.1",
     "@11ty/eleventy-img": "^2.0.1",
     "@11ty/eleventy-navigation": "^0.3.5",
     "@justinribeiro/lite-youtube": "^1.4.0",
+    "@staticman/core": "^1.7.1",
     "clean-css": "^5.3.1",
     "eleventy-plugin-time-to-read": "^1.2.0",
     "html-minifier": "^4.0.0",

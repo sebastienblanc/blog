@@ -33,6 +33,10 @@ body {
 	color: var(--primary-text-color);
 }
 
+.hidden {
+	display: none;
+}
+
 main {
 	text-align: justify;
 }

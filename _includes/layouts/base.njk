@@ -18,6 +18,9 @@
 
 		{% include "components/footer.njk" %}
 
+		{% for module in modules %}
+			<script type="module" src="/js-modules/{{module}}"></script>
+		{% endfor %}
 	</body>
 
 </html>

@@ -22,18 +22,20 @@
   },
   "homepage": "https://github.com/n031/blog",
   "devDependencies": {
-    "@11ty/eleventy": "^1.0.2",
+    "@11ty/eleventy": "2.0.0-canary.16",
+    "dotenv": "^16.0.3",
     "luxon": "^3.0.4",
     "markdown-it": "^13.0.1",
-    "markdown-it-anchor": "^8.6.5",
-    "dotenv": "^16.0.3"
+    "markdown-it-anchor": "^8.6.5"
   },
   "dependencies": {
     "@11ty/eleventy-img": "^2.0.1",
     "@11ty/eleventy-navigation": "^0.3.5",
+    "@justinribeiro/lite-youtube": "^1.4.0",
     "clean-css": "^5.3.1",
     "html-minifier": "^4.0.0",
     "markdown-it-emoji": "^2.0.2",
+    "markdown-it-footnote": "^3.0.3",
     "npm": "^8.19.2",
     "sharp": "^0.31.1",
     "uglify-js": "^3.17.4"

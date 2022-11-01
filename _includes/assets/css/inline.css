@@ -7,6 +7,9 @@
 	--text-color-on-secondary: #000;
 	--text-color-on-soft: #FFF;
 	--soft-color: #60605e;
+	--bloquote-border-color: #424242;
+	--bloquote-text-color: #000;
+	--bloquote-bg-color: #212121;
 }
 
 *, *:before, *:after {
@@ -88,13 +91,23 @@ img {
 	height: auto;
 }
 
-article img {
+article img:not(.icon) {
 	display: block;
 	margin: 0 auto;
 }
 
+.twitter-link-icon {
+	height: .6rem;
+}
+
 article figure {
 	text-align: center;
+}
+
+article video {
+	display: block;
+	margin: 0 auto;
+	max-width: 100%
 }
 
 header,
@@ -261,4 +274,21 @@ button.soft {
 .post__footer {
 	display: flex;
 	justify-content: space-between;
+}
+
+.blog__footer {
+	display: flex;
+	justify-content: center;
+	gap: 1rem;
+}
+
+blockquote {
+	border-left: 5px solid var(--bloquote-border-color);
+	background-color: var(--bloquote-bg-color);
+	margin-inline: 0;
+	padding: 1rem;
+}
+
+blockquote p:last-child {
+	margin-bottom: 0;
 }

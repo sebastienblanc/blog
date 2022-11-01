@@ -4,6 +4,7 @@ const UglifyJS = require('uglify-js');
 const htmlmin = require('html-minifier');
 const eleventyNavigationPlugin = require('@11ty/eleventy-navigation');
 const Image = require('@11ty/eleventy-img');
+const { Transform } = require('readable-stream');
 
 require('dotenv').config();
 
@@ -79,15 +80,17 @@ module.exports = function (eleventyConfig) {
     return new CleanCSS({}).minify(code).styles;
   });
 
-  // Minify JS
-  eleventyConfig.addFilter('jsmin', function (code) {
+  const minifyJS = (code) => {
     let minified = UglifyJS.minify(code);
     if (minified.error) {
       console.log('UglifyJS error: ', minified.error);
       return code;
     }
     return minified.code;
-  });
+  };
+
+  // Minify JS
+  eleventyConfig.addFilter('jsmin', minifyJS);
 
   // Minify HTML output
   eleventyConfig.addTransform('htmlmin', function (content, outputPath) {
@@ -112,17 +115,41 @@ module.exports = function (eleventyConfig) {
   const markdownIt = require('markdown-it');
   const markdownItAnchor = require('markdown-it-anchor');
   const markdownItEmoji = require('markdown-it-emoji');
+  const markdownItFootnote = require('markdown-it-footnote');
 
-  const mdOptions = {
-    html: true,
-    breaks: false,
-    linkify: true,
-  };
-  const mdAnchorsOptions = {
-    permalink: false,
-  };
+  eleventyConfig.setLibrary(
+    'md',
+    markdownIt({
+      html: true,
+      breaks: false,
+      linkify: true,
+    })
+      .use(markdownItAnchor, {
+        permalink: false,
+      })
+      .use(markdownItEmoji)
+      .use(markdownItFootnote)
+  );
 
-  eleventyConfig.setLibrary('md', markdownIt(mdOptions).use(markdownItAnchor, mdAnchorsOptions).use(markdownItEmoji));
+  /* dynamically loaded JS modules */
+  eleventyConfig.addPassthroughCopy(
+    {
+      'node_modules/@justinribeiro/lite-youtube/lite-youtube.js': 'js-modules/lite-youtube.js',
+    },
+    {
+      transform: (src, dest, stats) => {
+        return new Transform({
+          transform(chunk, enc, done) {
+            done(null, minifyJS(chunk.toString()));
+          },
+        });
+      },
+    }
+  );
+
+  /* custom shortcodes */
+  eleventyConfig.addShortcode('tweet-link', (id, author = "n031d") => `<a href="https://twitter.com/${author}/status/${id}"><img src="/static/img/icons/twitter-link.svg" class="icon twitter-link-icon" alt="tweet original"></img></a>
+  `);
 
   return {
     templateFormats: ['md', 'njk', 'liquid'],

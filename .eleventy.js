@@ -162,14 +162,17 @@ module.exports = function (eleventyConfig) {
   );
 
   /* custom collections */
-  eleventyConfig.addCollection("postsWithComments", function(collection) {
+  eleventyConfig.addCollection('postsWithComments', function (collection) {
     const postsWithComments = new Set();
 
-    collection.getFilteredByTag("post").forEach(function(item) {
-      console.log(item.fileSlug);
-      const comments = Object.values(item.data.comments)
-        .filter(comment => comment.post === item.fileSlug)
-        .map(comment => ({...comment, date: comment.date && new Date(comment.date)}));
+    collection.getFilteredByTag('post').forEach((item) => {
+      let comments = [];
+
+      if (item.data.comments) {
+        comments = Object.values(item.data.comments)
+          .filter((comment) => comment.post === item.fileSlug)
+          .map((comment) => ({ ...comment, date: comment.date && new Date(comment.date) }));
+      }
 
       item.data.staticmanEntries = comments;
 

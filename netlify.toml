@@ -17,8 +17,8 @@
     # ignoreElements = '.jumbotron > h2'
     # Ignore any accessibility issues associated with this rule code or type
     # ignoreGuidelines = ['WCAG2AA.Principle1.Guideline1_4.1_4_6.G17']
-    # Perform a11y check against WCAG 2.1 AAA
-    wcagLevel = 'WCAG2AAA'
+    # Perform a11y check against WCAG 2.1 AA
+    wcagLevel = 'WCAG2AA'
 
 # Only run in production as all generated img URls gives 404 on deploy-preview 
 [[context.production.plugins]]

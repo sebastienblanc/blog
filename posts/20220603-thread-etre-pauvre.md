@@ -1,9 +1,9 @@
 ---
-title: '🧶 Être pauvre...'
+title: '🧶 Comme une odeur de pauvreté'
 date: 2022-06-03T01:51:00Z
 permalink: /posts/thread-20220603.html
 summary: 'Mon témoignage perso sur le classisme et la "pauvrophobie".'
-image: /static/img/anger.jpg
+image: /static/img/rickie-tom-schunemann-ZOqKNhOKZ4o-unsplash.jpg
 tags:
   - thread
   - archive

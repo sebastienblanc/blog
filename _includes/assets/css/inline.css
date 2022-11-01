@@ -230,10 +230,6 @@ form {
   display: grid;
 }
 
-form label {
-  display: none;
-}
-
 input,
 textarea,
 button {
@@ -329,8 +325,4 @@ fieldset {
 fieldset.consent {
 	display: flex;
 	gap: 1rem;
-}
-
-fieldset.consent label {
-	display: inline;
 }

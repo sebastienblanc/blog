@@ -2,11 +2,12 @@
 title: '🧶 Être pauvre...'
 date: 2022-06-03T01:51:00Z
 permalink: /posts/thread-20220603.html
-summary: Archive de thread twitter.
+summary: 'Mon témoignage perso sur le classisme et la "pauvrophobie".'
 image: /static/img/anger.jpg
 tags:
   - thread
   - archive
+  - Twitter
 ---
 
 > Thread de réaction au thread de Antoine Combes :

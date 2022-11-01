@@ -2,11 +2,12 @@
 title: '🧶 Exprimez votre colère !'
 date: 2022-06-23T15:17:00Z
 permalink: /posts/thread-20220623.html
-summary: Archive de thread twitter.
+summary: "Petit pladoyer contre le calme et la modération."
 image: /static/img/anger.jpg
 tags:
   - thread
   - archive
+  - Twitter
 modules:
   - "lite-youtube.js"
 ---

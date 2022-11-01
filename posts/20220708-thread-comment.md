@@ -2,11 +2,12 @@
 title: '🧶 Comment en sommes nous arrivés là ?'
 date: 2022-07-08T18:50:00Z
 permalink: /posts/thread-20220708.html
-summary: Archive de thread twitter.
+summary: "Mon découragement face à la période médiatique actuelle."
 image: /static/img/blast-peur-rouge-tumbnail.jpg
 tags:
   - thread
   - archive
+  - Twitter
 modules:
   - "lite-youtube.js"
 ---

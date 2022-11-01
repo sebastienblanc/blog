@@ -2,10 +2,11 @@
 title: '🧶 La présidence de la commission des finances'
 date: 2022-06-21
 permalink: /posts/thread-20220621.html
-summary: Archive de thread twitter.
+summary: "Comment lea président·e de la commission des finances est-iel vraiment élu·e ?"
 tags:
   - thread
   - archive
+  - Twitter
 ---
 
 > Retweet "correctif" du tweet suivant (cette désinformation passait en boucle à ce moment-là)

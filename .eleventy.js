@@ -27,7 +27,7 @@ module.exports = function (eleventyConfig) {
   eleventyConfig.addPlugin(eleventyNavigationPlugin);
 
   eleventyConfig.addPlugin(timeToRead, {
-    language: 'fr'
+    language: 'fr',
   });
 
   // Configuration API: use eleventyConfig.addLayoutAlias(from, to) to add
@@ -155,8 +155,29 @@ module.exports = function (eleventyConfig) {
   );
 
   /* custom shortcodes */
-  eleventyConfig.addShortcode('tweet-link', (id, author = "n031d") => `<a href="https://twitter.com/${author}/status/${id}"><img src="/static/img/icons/twitter-link.svg" class="icon twitter-link-icon" alt="tweet original"></img></a>
-  `);
+  eleventyConfig.addShortcode(
+    'tweet-link',
+    (id, author = 'n031d') =>
+      `<a href="https://twitter.com/${author}/status/${id}"><img src="/static/img/icons/twitter-link.svg" class="icon twitter-link-icon" alt="tweet original"></img></a>`
+  );
+
+  /* custom collections */
+  eleventyConfig.addCollection("postsWithComments", function(collection) {
+    const postsWithComments = new Set();
+
+    collection.getFilteredByTag("post").forEach(function(item) {
+      console.log(item.fileSlug);
+      const comments = Object.values(item.data.comments)
+        .filter(comment => comment.post === item.fileSlug)
+        .map(comment => ({...comment, date: comment.date && new Date(comment.date)}));
+
+      item.data.staticmanEntries = comments;
+
+      postsWithComments.add(item);
+    });
+
+    return [...postsWithComments];
+  });
 
   return {
     templateFormats: ['md', 'njk', 'liquid'],

@@ -33,6 +33,10 @@ body {
 	color: var(--primary-text-color);
 }
 
+.hidden {
+	display: none;
+}
+
 main {
 	text-align: justify;
 }
@@ -47,7 +51,7 @@ h2 {
 	margin: 0.83em 0;
 }
 
-section h2 {
+.postslist h2 {
 	font-size: 1.3em;
 }
 
@@ -221,10 +225,9 @@ a[rel="tag"]:last-child {
 	margin-right: 0;
 }
 
-/* Contact Form */
+/* Contact & comment forms */
 form {
   display: grid;
-	padding: 2em 0;
 }
 
 form label {
@@ -232,6 +235,12 @@ form label {
 }
 
 input,
+textarea,
+button {
+  margin-bottom: 1em;
+}
+
+input:not([type="checkbox"]),
 textarea,
 button {
   width: 100%;
@@ -242,7 +251,7 @@ button {
 	background-color: var(--accent-background);
 }
 
-input,
+input:not([type="checkbox"]),
 textarea {
 	border: 1px solid black;
 	color: var(--primary-text-color);
@@ -256,6 +265,7 @@ button {
 }
 
 button.secondary {
+	border: none;
 	background-color: var(--secondary);
 	color: var(--text-color-on-soft);
 }
@@ -296,4 +306,31 @@ blockquote {
 
 blockquote p:last-child {
 	margin-bottom: 0;
+}
+
+.post__comments {
+	margin-top: 2rem;
+}
+
+.comment {
+	border: 1px solid var(--bloquote-border-color);
+	padding: 1rem;
+	margin-bottom: 1rem;
+}
+
+.comment__header {
+	margin-bottom: 1rem;
+}
+
+fieldset {
+	border: none;
+}
+
+fieldset.consent {
+	display: flex;
+	gap: 1rem;
+}
+
+fieldset.consent label {
+	display: inline;
 }

@@ -4,6 +4,7 @@
 	--background: #131311;
 	--accent-background: #000;
 	--primary-text-color: #FFF;
+	--text-color-on-primary: #000;
 	--text-color-on-secondary: #000;
 	--text-color-on-soft: #FFF;
 	--soft-color: #4c4c4b;
@@ -257,7 +258,7 @@ textarea {
 button {
 	border: 1px solid var(--primary);
 	background-color: var(--primary);
-	color: var(--primary-text-color);
+	color: var(--text-color-on-primary);
 	cursor: pointer;
 }
 

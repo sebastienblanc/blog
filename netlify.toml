@@ -11,8 +11,8 @@
     # checkPaths = ['/']
     # Do not fail the build if a11y issues are found
     failWithIssues = false
-    # Ignore all HTML files in `/admin`
-    # ignoreDirectories = ['/admin']
+    # Ignore all HTML files in listed directories
+    ignoreDirectories = ['email-templates']
     # Ignore any accessibility issues associated with an element matching this selector
     # ignoreElements = '.jumbotron > h2'
     # Ignore any accessibility issues associated with this rule code or type
@@ -44,7 +44,7 @@
     # skipPatterns is an array of strings you can match against failing reports
     skipPatterns = [
       "_site/js-modules/",
-      "D_Article_39"
+      "D_Article_39",
     ]
 
     # You can mark some check as todo, which will execute the check, but allow failures.

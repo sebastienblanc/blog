@@ -7,9 +7,10 @@
 	--text-color-on-secondary: #000;
 	--text-color-on-soft: #FFF;
 	--soft-color: #4c4c4b;
-	--bloquote-border-color: #424242;
-	--bloquote-text-color: #000;
-	--bloquote-bg-color: #212121;
+	--blockquote-border-color: #424242;
+	--blockquote-text-color: #000;
+	--blockquote-bg-color: #212121;
+	--blockquote-primary: #F44;
 }
 
 *, *:before, *:after {
@@ -295,10 +296,14 @@ button.soft {
 }
 
 blockquote {
-	border-left: 5px solid var(--bloquote-border-color);
-	background-color: var(--bloquote-bg-color);
+	border-left: 5px solid var(--blockquote-border-color);
+	background-color: var(--blockquote-bg-color);
 	margin-inline: 0;
 	padding: 1rem;
+}
+
+blockquote a {
+	color: var(--blockquote-primary) !important;
 }
 
 blockquote p:last-child {
@@ -310,7 +315,7 @@ blockquote p:last-child {
 }
 
 .comment {
-	border: 1px solid var(--bloquote-border-color);
+	border: 1px solid var(--blockquote-border-color);
 	padding: 1rem;
 	margin-bottom: 1rem;
 }

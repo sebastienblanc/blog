@@ -23,7 +23,7 @@ Faisons bouger la fenêtre d'Overton, nous qui ne voulons pas du pouvoir !
 C'est le seul moyen d'y arriver !
 {% tweet-link "1539960867537752065" %}
 
-<video autoplay loop muted playsinline src="https://media.giphy.com/media/N7vysOmYh5sru/giphy.mp4"></video>
+{% video-gif "Colère, du file Inside Out, pousse toutes les manettes en hurlant tandis que du feu sort de sa tête", "https://media.giphy.com/media/N7vysOmYh5sru/giphy.mp4", "/static/img/gif-posters/anger.jpg" %}
 
 <br/><br/>
 La gauche se fait piéger depuis trop longtemps dans son moralisme.

@@ -62,7 +62,7 @@ La majorité est obligée de choisir un président issu d'un groupe d'opposition
 Même en prenant la plus faible tendance (LR-UDI), il est assuré d'une majorité absolue.
 {% tweet-link "1539045542004670465" %}
 
-<video autoplay loop muted playsinline style="max-width: 300px" src="https://media.tenor.com/ysNkxVXVtoUAAAPo/mr-bean-bean.mp4"></video>
+{% video-gif "Mr Bean tira la langue et point du doigt des bonbons dans un énorme saladié afin de faire un choix", "https://media.tenor.com/ysNkxVXVtoUAAAPo/mr-bean-bean.mp4", "/static/img/gif-posters/mr-bean-bean.png", "300px" %}
 
 Conclusion : la macronie nous PRÉPARE au fait qu'ils vont CHOISIR un président de la commission des finances issue du RN, parce qu'il sera bien plus arrangeant.
 

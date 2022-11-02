@@ -89,6 +89,6 @@ J'ai surtout une énorme nostalgie de ces soirées à "changer le monde".
 Le désespoir s'est aussi installé chez les "gens honnêtes", avec une forte dépolitisation et rejet. Donc les "débats" dépassent rarement le partage d'expérience et les constats déprimants.
 {% tweet-link "1547398247009984513" %}
 
-<video autoplay loop muted playsinline src="https://media.tenor.com/kgJyhBoqod0AAAPo/bill-nye-party-horn.mp4"></video> {% tweet-link "1547416652484157442" %}
+{% video-gif "Bill Nye, assis derrière un bureau austère, lance des confettis et souffle dans un mirliton sans exprimer le moindre enthousiasme", "https://media.tenor.com/kgJyhBoqod0AAAPo/bill-nye-party-horn.mp4", "/static/img/gif-posters/bill-nye-party-horn.jpg" %}{% tweet-link "1547416652484157442" %}
 
 > Un autre [thread](https://twitter.com/bartlettstarman/status/1547472698393100290) à également été publié en réponse à cet addendum.

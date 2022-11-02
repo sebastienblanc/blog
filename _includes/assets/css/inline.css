@@ -326,3 +326,7 @@ fieldset.consent {
 	display: flex;
 	gap: 1rem;
 }
+
+.small-text-icon {
+	font-weight: bolder;
+}

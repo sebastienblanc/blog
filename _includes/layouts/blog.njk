@@ -15,9 +15,9 @@ section: /
 {% include "components/postslist.njk" %}
 
 <nav class="blog__footer">
-  {% if pagination.href.previous %}<div><a href="{{ pagination.href.previous }}">←</a></div>{% endif %}
+  {% if pagination.href.previous %}<div><a href="{{ pagination.href.previous }}" class="small-text-icon" aria-label="page précédente">🠰</a></div>{% endif %}
   {%- for pageEntry in pagination.pages %}
-  <div>{% if page.url == pagination.hrefs[ loop.index0 ] %}{{ loop.index }}{% else %}<a href="{{ pagination.hrefs[ loop.index0 ] }}">{{ loop.index }}</a>{% endif %}</div>
+  <div>{% if page.url == pagination.hrefs[ loop.index0 ] %}{{ loop.index }}{% else %}<a href="{{ pagination.hrefs[ loop.index0 ] }}" aria-label="page numéro {{ loop.index }}">{{ loop.index }}</a>{% endif %}</div>
   {%- endfor %}
-  {% if pagination.href.next %}<div><a href="{{ pagination.href.next }}">→</a></div>{% endif %}
+  {% if pagination.href.next %}<div><a href="{{ pagination.href.next }}" class="small-text-icon" aria-label="page suivante">🠲</a></div>{% endif %}
 </nav>

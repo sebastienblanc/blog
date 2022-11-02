@@ -4,9 +4,27 @@
   functions = "functions"
 
 [[plugins]]
+  package = "@netlify/plugin-a11y"
+  
+  [plugins.inputs]
+    # Check all HTML files in this project (the default behavior)
+    # checkPaths = ['/']
+    # Do not fail the build if a11y issues are found
+    failWithIssues = false
+    # Ignore all HTML files in listed directories
+    ignoreDirectories = ['/admin']
+    # Ignore any accessibility issues associated with an element matching this selector
+    # ignoreElements = '.jumbotron > h2'
+    # Ignore any accessibility issues associated with this rule code or type
+    ignoreGuidelines = ['video-caption']
+    # Perform a11y check against WCAG 2.1 AA
+    wcagLevel = 'WCAG2AA'
+
+# Only run in production as all generated img URls gives 404 on deploy-preview 
+[[context.production.plugins]]
   package = "netlify-plugin-checklinks"
 
-  [plugins.inputs]
+  [context.production.plugins.inputs]
     # An array of glob patterns for pages on your site
     # Recursive traversal will start from these
     entryPoints = [
@@ -26,7 +44,7 @@
     # skipPatterns is an array of strings you can match against failing reports
     skipPatterns = [
       "_site/js-modules/",
-      "D_Article_39"
+      "D_Article_39",
     ]
 
     # You can mark some check as todo, which will execute the check, but allow failures.
@@ -41,20 +59,3 @@
     # Enable to check references to source maps, source map sources etc.
     # Many build tools don't emit working references, so this is disabled by default
     followSourceMaps = true
-
-[[plugins]]
-  package = "@netlify/plugin-a11y"
-  
-  [plugins.inputs]
-    # Check all HTML files in this project (the default behavior)
-    # checkPaths = ['/']
-    # Do not fail the build if a11y issues are found
-    failWithIssues = false
-    # Ignore all HTML files in `/admin`
-    # ignoreDirectories = ['/admin']
-    # Ignore any accessibility issues associated with an element matching this selector
-    # ignoreElements = '.jumbotron > h2'
-    # Ignore any accessibility issues associated with this rule code or type
-    # ignoreGuidelines = ['WCAG2AA.Principle1.Guideline1_4.1_4_6.G17']
-    # Perform a11y check against WCAG 2.1 AAA
-    wcagLevel = 'WCAG2AAA'

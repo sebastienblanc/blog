@@ -1,15 +1,11 @@
 <form name="contact" method="POST" data-netlify="true" netlify-honeypot="bot-field" action="/message-sent">
-  <label for="bot-field">Don’t fill this out if you’re human:</label>
-  <input type="text" name="bot-field" class="hidden"></input>
-  <label for="name">Nom</label>
-  <input type="text" name="name" id="name" autocomplete="name" placeholder="Votre nom (ou pseudo, osef)" title="Veuillez entrer un nom afin de m'aider à m'y retrouver" required></input>
-  <label for="email">Email</label>
-  <input type="email" name="email" id="email" autocomplete="email" placeholder="Votre adresse email" title="Le nom de domaine de cettre adresse email (la section après le @) est invalide." pattern="^([^\x00-\x20\x22\x28\x29\x2c\x2e\x3a-\x3c\x3e\x40\x5b-\x5d\x7f-\xff]+|\x22([^\x0d\x22\x5c\x80-\xff]|\x5c[\x00-\x7f])*\x22)(\x2e([^\x00-\x20\x22\x28\x29\x2c\x2e\x3a-\x3c\x3e\x40\x5b-\x5d\x7f-\xff]+|\x22([^\x0d\x22\x5c\x80-\xff]|\x5c[\x00-\x7f])*\x22))*\x40([^\x00-\x20\x22\x28\x29\x2c\x2e\x3a-\x3c\x3e\x40\x5b-\x5d\x7f-\xff]+|\x5b([^\x0d\x5b-\x5d\x80-\xff]|\x5c[\x00-\x7f])*\x5d)(\x2e([^\x00-\x20\x22\x28\x29\x2c\x2e\x3a-\x3c\x3e\x40\x5b-\x5d\x7f-\xff]+|\x5b([^\x0d\x5b-\x5d\x80-\xff]|\x5c[\x00-\x7f])*\x5d))*(\.\w{2,})+$" required></input>
-  <label for="message">Message</label>
-  <textarea name="message" id="message" placeholder="Écrivez un truc interessant..." rows="7" required></textarea>
+  <input type="text" name="bot-field" class="hidden" aria-label="Don’t fill this out if you’re human"></input>
+  <input type="text" aria-label="Nom" name="name"  autocomplete="name" placeholder="Votre nom (ou pseudo, osef)" title="Veuillez entrer un nom afin de m'aider à m'y retrouver" required></input>
+  <input type="email" aria-label="Email" name="email" autocomplete="email" placeholder="Votre adresse email" title="Le nom de domaine de cettre adresse email (la section après le @) est invalide." pattern="^([^\x00-\x20\x22\x28\x29\x2c\x2e\x3a-\x3c\x3e\x40\x5b-\x5d\x7f-\xff]+|\x22([^\x0d\x22\x5c\x80-\xff]|\x5c[\x00-\x7f])*\x22)(\x2e([^\x00-\x20\x22\x28\x29\x2c\x2e\x3a-\x3c\x3e\x40\x5b-\x5d\x7f-\xff]+|\x22([^\x0d\x22\x5c\x80-\xff]|\x5c[\x00-\x7f])*\x22))*\x40([^\x00-\x20\x22\x28\x29\x2c\x2e\x3a-\x3c\x3e\x40\x5b-\x5d\x7f-\xff]+|\x5b([^\x0d\x5b-\x5d\x80-\xff]|\x5c[\x00-\x7f])*\x5d)(\x2e([^\x00-\x20\x22\x28\x29\x2c\x2e\x3a-\x3c\x3e\x40\x5b-\x5d\x7f-\xff]+|\x5b([^\x0d\x5b-\x5d\x80-\xff]|\x5c[\x00-\x7f])*\x5d))*(\.\w{2,})+$" required></input>
+  <textarea name="message" aria-label="Message" placeholder="Écrivez un truc interessant..." rows="7" required></textarea>
   <fieldset class="consent">
     <input id="consent" type="checkbox" name="consent" required></input>
     <label for="consent">J'ai lu le <a href="/coc">code de conduite</a> et l'ai respecté en écrivant ce message.</label>
   </fieldset>
-  <button type="submit">Envoyer</button>
+  <button type="submit" class="soft">Envoyer</button>
 </form>

@@ -1,15 +1,17 @@
 :root {
-	--primary: #FB0909;
+	--primary: #FB1C1C;
 	--secondary: #da720a;
 	--background: #131311;
 	--accent-background: #000;
 	--primary-text-color: #FFF;
+	--text-color-on-primary: #000;
 	--text-color-on-secondary: #000;
 	--text-color-on-soft: #FFF;
-	--soft-color: #60605e;
-	--bloquote-border-color: #424242;
-	--bloquote-text-color: #000;
-	--bloquote-bg-color: #212121;
+	--soft-color: #4c4c4b;
+	--blockquote-border-color: #424242;
+	--blockquote-text-color: #000;
+	--blockquote-bg-color: #212121;
+	--blockquote-primary: #F44;
 }
 
 *, *:before, *:after {
@@ -230,10 +232,6 @@ form {
   display: grid;
 }
 
-form label {
-  display: none;
-}
-
 input,
 textarea,
 button {
@@ -260,17 +258,18 @@ textarea {
 button {
 	border: 1px solid var(--primary);
 	background-color: var(--primary);
-	color: var(--primary-text-color);
+	color: var(--text-color-on-primary);
 	cursor: pointer;
 }
 
 button.secondary {
 	border: none;
 	background-color: var(--secondary);
-	color: var(--text-color-on-soft);
+	color: var(--text-color-on-secondary);
 }
 
 button.soft {
+	border: none;
 	background-color: var(--soft-color);
 	color: var(--text-color-on-soft);
 }
@@ -294,14 +293,19 @@ button.soft {
 .blog__footer {
 	display: flex;
 	justify-content: center;
+	align-items: center;
 	gap: 1rem;
 }
 
 blockquote {
-	border-left: 5px solid var(--bloquote-border-color);
-	background-color: var(--bloquote-bg-color);
+	border-left: 5px solid var(--blockquote-border-color);
+	background-color: var(--blockquote-bg-color);
 	margin-inline: 0;
 	padding: 1rem;
+}
+
+blockquote a {
+	color: var(--blockquote-primary) !important;
 }
 
 blockquote p:last-child {
@@ -313,7 +317,7 @@ blockquote p:last-child {
 }
 
 .comment {
-	border: 1px solid var(--bloquote-border-color);
+	border: 1px solid var(--blockquote-border-color);
 	padding: 1rem;
 	margin-bottom: 1rem;
 }
@@ -331,6 +335,6 @@ fieldset.consent {
 	gap: 1rem;
 }
 
-fieldset.consent label {
-	display: inline;
+.small-text-icon {
+	font-weight: bolder;
 }

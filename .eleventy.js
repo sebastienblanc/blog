@@ -161,6 +161,11 @@ module.exports = function (eleventyConfig) {
       `<a href="https://twitter.com/${author}/status/${id}"><img src="/static/img/icons/twitter-link.svg" class="icon twitter-link-icon" alt="tweet original"></img></a>`
   );
 
+  eleventyConfig.addShortcode(
+    'video-gif',
+    (title, src, poster, maxWidth) => `<video title="${title}" src="${src}" poster="${poster}" loop muted playsinline controls controlslist="nofullscreen nodownload noremoteplayback" preload="none" disablePictureInPicture ${maxWidth ? `style="max-width: ${maxWidth}"` : ``}></video>`
+  );
+
   /* custom collections */
   eleventyConfig.addCollection('postsWithComments', function (collection) {
     const postsWithComments = new Set();
@@ -181,6 +186,8 @@ module.exports = function (eleventyConfig) {
 
     return [...postsWithComments];
   });
+
+  eleventyConfig.ignores.add("CODE_OF_CONDUCT.md");
 
   return {
     templateFormats: ['md', 'njk', 'liquid'],

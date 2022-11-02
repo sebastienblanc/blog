@@ -6,7 +6,7 @@
 	--primary-text-color: #FFF;
 	--text-color-on-secondary: #000;
 	--text-color-on-soft: #FFF;
-	--soft-color: #60605e;
+	--soft-color: #4c4c4b;
 	--bloquote-border-color: #424242;
 	--bloquote-text-color: #000;
 	--bloquote-bg-color: #212121;
@@ -263,10 +263,11 @@ button {
 button.secondary {
 	border: none;
 	background-color: var(--secondary);
-	color: var(--text-color-on-soft);
+	color: var(--text-color-on-secondary);
 }
 
 button.soft {
+	border: none;
 	background-color: var(--soft-color);
 	color: var(--text-color-on-soft);
 }

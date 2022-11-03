@@ -97,6 +97,30 @@ img {
 	height: auto;
 }
 
+.svg-icon {
+	display: inline-flex;
+  align-self: center;
+}
+
+.svg-icon svg {
+	height: 1rem;
+	top: .2em;
+  position: relative;
+}
+
+.svg-link:hover {
+	border-bottom: var(--primary) solid 1px;
+	text-decoration: none;
+}
+
+.main-footer .svg-icon svg {
+	height: .8rem;
+} 
+
+.svg-link svg {
+	fill: var(--primary);
+}
+
 article img:not(.icon) {
 	display: block;
 	margin: 0 auto;
@@ -120,6 +144,10 @@ header,
 main,
 footer {
 	padding: 1em;
+}
+
+.main-footer {
+	font-size: .8rem;
 }
 
 main {

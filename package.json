@@ -6,7 +6,8 @@
     "build": "npx @11ty/eleventy",
     "watch": "npx @11ty/eleventy --watch",
     "start": "npx @11ty/eleventy --serve",
-    "debug": "DEBUG=* npx @11ty/eleventy"
+    "debug": "DEBUG=* npx @11ty/eleventy",
+    "lint:a11y": "pa11y -e axe"
   },
   "repository": {
     "type": "git",
@@ -28,7 +29,8 @@
     "luxon": "^3.0.4",
     "markdown-it": "^13.0.1",
     "markdown-it-anchor": "^8.6.5",
-    "netlify-plugin-checklinks": "^4.1.1"
+    "netlify-plugin-checklinks": "^4.1.1",
+    "pa11y": "^6.2.3"
   },
   "dependencies": {
     "@11ty/eleventy-img": "^2.0.1",

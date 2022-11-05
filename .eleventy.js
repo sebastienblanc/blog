@@ -169,7 +169,10 @@ module.exports = function (eleventyConfig) {
 
   eleventyConfig.addShortcode(
     'video-gif',
-    (title, src, poster, maxWidth) => `<video title="${title}" src="${src}" poster="${poster}" loop muted playsinline controls controlslist="nofullscreen nodownload noremoteplayback" preload="none" disablePictureInPicture ${maxWidth ? `style="max-width: ${maxWidth}"` : ``}></video>`
+    (title, src, poster, maxWidth) =>
+      `<video title="${title}" src="${src}" poster="${poster}" loop muted playsinline controls controlslist="nofullscreen nodownload noremoteplayback" preload="none" disablePictureInPicture ${
+        maxWidth ? `style="max-width: ${maxWidth}"` : ``
+      }></video>`
   );
 
   /* custom collections */

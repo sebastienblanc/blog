@@ -366,3 +366,7 @@ fieldset.consent {
 .small-text-icon {
 	font-weight: bolder;
 }
+
+eq .katex {
+	padding-inline: .3rem;
+}

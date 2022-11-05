@@ -25,9 +25,11 @@
     "@11ty/eleventy": "2.0.0-canary.16",
     "@netlify/plugin-a11y": "^1.0.0-beta.1",
     "dotenv": "^16.0.3",
+    "katex": "^0.16.3",
     "luxon": "^3.0.4",
     "markdown-it": "^13.0.1",
     "markdown-it-anchor": "^8.6.5",
+    "markdown-it-texmath": "^1.0.0",
     "netlify-plugin-checklinks": "^4.1.1"
   },
   "dependencies": {

@@ -123,6 +123,8 @@ module.exports = function (eleventyConfig) {
   const markdownItAnchor = require('markdown-it-anchor');
   const markdownItEmoji = require('markdown-it-emoji');
   const markdownItFootnote = require('markdown-it-footnote');
+  const markdownItTexmath = require('markdown-it-texmath');
+  const latexEngine = require('katex');
 
   eleventyConfig.setLibrary(
     'md',
@@ -136,6 +138,10 @@ module.exports = function (eleventyConfig) {
       })
       .use(markdownItEmoji)
       .use(markdownItFootnote)
+      .use(markdownItTexmath, {
+        engine: latexEngine,
+        delimiters: 'dollars',
+      })
   );
 
   /* dynamically loaded JS modules */

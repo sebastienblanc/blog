@@ -115,6 +115,7 @@ module.exports = function (eleventyConfig) {
   // Don't process folders with static assets e.g. images
   eleventyConfig.addPassthroughCopy('static/img');
   eleventyConfig.addPassthroughCopy('static/fonts');
+  eleventyConfig.addPassthroughCopy('static/data');
   eleventyConfig.addPassthroughCopy('admin/');
   eleventyConfig.addPassthroughCopy('_includes/assets/css/inline.css');
 
@@ -148,6 +149,7 @@ module.exports = function (eleventyConfig) {
   eleventyConfig.addPassthroughCopy(
     {
       'node_modules/@justinribeiro/lite-youtube/lite-youtube.js': 'js-modules/lite-youtube.js',
+      'js-modules/political-plot.js': 'js-modules/political-plot.js',
     },
     {
       transform: (src, dest, stats) => {

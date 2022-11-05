@@ -336,7 +336,7 @@ blockquote a {
 	color: var(--blockquote-primary) !important;
 }
 
-blockquote p:last-child {
+blockquote > *:last-child {
 	margin-bottom: 0;
 }
 

@@ -1,4 +1,6 @@
 # Netlify CMS Configuration File
+locale: 'fr'
+show_preview_links: true
 
 # The backend option specifies how to access the content for your site
 backend:

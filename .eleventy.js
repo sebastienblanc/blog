@@ -115,6 +115,7 @@ module.exports = function (eleventyConfig) {
   // Don't process folders with static assets e.g. images
   eleventyConfig.addPassthroughCopy('static/img');
   eleventyConfig.addPassthroughCopy('static/fonts');
+  eleventyConfig.addPassthroughCopy('static/data');
   eleventyConfig.addPassthroughCopy('admin/');
   eleventyConfig.addPassthroughCopy('_includes/assets/css/inline.css');
 
@@ -123,6 +124,8 @@ module.exports = function (eleventyConfig) {
   const markdownItAnchor = require('markdown-it-anchor');
   const markdownItEmoji = require('markdown-it-emoji');
   const markdownItFootnote = require('markdown-it-footnote');
+  const markdownItTexmath = require('markdown-it-texmath');
+  const latexEngine = require('katex');
 
   eleventyConfig.setLibrary(
     'md',
@@ -136,12 +139,17 @@ module.exports = function (eleventyConfig) {
       })
       .use(markdownItEmoji)
       .use(markdownItFootnote)
+      .use(markdownItTexmath, {
+        engine: latexEngine,
+        delimiters: 'dollars',
+      })
   );
 
   /* dynamically loaded JS modules */
   eleventyConfig.addPassthroughCopy(
     {
       'node_modules/@justinribeiro/lite-youtube/lite-youtube.js': 'js-modules/lite-youtube.js',
+      'js-modules/political-plot.js': 'js-modules/political-plot.js',
     },
     {
       transform: (src, dest, stats) => {
@@ -163,7 +171,10 @@ module.exports = function (eleventyConfig) {
 
   eleventyConfig.addShortcode(
     'video-gif',
-    (title, src, poster, maxWidth) => `<video title="${title}" src="${src}" poster="${poster}" loop muted playsinline controls controlslist="nofullscreen nodownload noremoteplayback" preload="none" disablePictureInPicture ${maxWidth ? `style="max-width: ${maxWidth}"` : ``}></video>`
+    (title, src, poster, maxWidth) =>
+      `<video title="${title}" src="${src}" poster="${poster}" loop muted playsinline controls controlslist="nofullscreen nodownload noremoteplayback" preload="none" disablePictureInPicture ${
+        maxWidth ? `style="max-width: ${maxWidth}"` : ``
+      }></video>`
   );
 
   /* custom collections */
@@ -186,8 +197,6 @@ module.exports = function (eleventyConfig) {
 
     return [...postsWithComments];
   });
-
-  eleventyConfig.ignores.add("CODE_OF_CONDUCT.md");
 
   return {
     templateFormats: ['md', 'njk', 'liquid'],

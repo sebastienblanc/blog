@@ -39,7 +39,7 @@ body {
 	display: none;
 }
 
-main {
+.post {
 	text-align: justify;
 }
 
@@ -336,7 +336,7 @@ blockquote a {
 	color: var(--blockquote-primary) !important;
 }
 
-blockquote p:last-child {
+blockquote > *:last-child {
 	margin-bottom: 0;
 }
 
@@ -365,4 +365,8 @@ fieldset.consent {
 
 .small-text-icon {
 	font-weight: bolder;
+}
+
+eq .katex {
+	padding-inline: .3rem;
 }

@@ -83,10 +83,14 @@ module.exports = function (eleventyConfig) {
   });
 
   // Minify CSS
-  eleventyConfig.addFilter('cssmin', function (code) {
-    return new CleanCSS({}).minify(code).styles;
-  });
 
+  const minifyCSS = function (code) {
+    return new CleanCSS({}).minify(code).styles;
+  }
+
+  eleventyConfig.addFilter('cssmin', minifyCSS);
+
+  // Minify JS
   const minifyJS = (code) => {
     let minified = UglifyJS.minify(code);
     if (minified.error) {
@@ -96,7 +100,6 @@ module.exports = function (eleventyConfig) {
     return minified.code;
   };
 
-  // Minify JS
   eleventyConfig.addFilter('jsmin', minifyJS);
 
   // Minify HTML output
@@ -156,6 +159,22 @@ module.exports = function (eleventyConfig) {
         return new Transform({
           transform(chunk, enc, done) {
             done(null, minifyJS(chunk.toString()));
+          },
+        });
+      },
+    }
+  );
+
+  /* dynamically loaded css files */
+  eleventyConfig.addPassthroughCopy(
+    {
+      '_includes/assets/css/tex.css': '/tex.css',
+    },
+    {
+      transform: (src, dest, stats) => {
+        return new Transform({
+          transform(chunk, enc, done) {
+            done(null, minifyCSS(chunk.toString()));
           },
         });
       },

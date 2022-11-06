@@ -2,8 +2,11 @@
 
 # The backend option specifies how to access the content for your site
 backend:
-  name: git-gateway
+  name: github
+  repo: N-031/blog # Path to your GitHub repository
   branch: main # The branch to update (optional; defaults to master)
+  auth_scope: repo # this is needed to fork the private repo
+  open_authoring: true # see https://www.netlifycms.org/docs/open-authoring/
 
 # Uncomment below to enable drafts https://www.netlifycms.org/docs/add-to-your-site/#editorial-workflow
 publish_mode: editorial_workflow

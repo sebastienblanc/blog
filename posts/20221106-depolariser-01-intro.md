@@ -1,7 +1,7 @@
 ---
 title: 'Organiser les idées - dé·polariser #0'
 shorttitle: depolariser-01-intro
-date: 2022-11-06T17:43:29.850Z
+date: 2022-11-07T19:08:00Z
 permalink: /posts/depolariser/00-intro.html
 image: /static/img/per-loov-oxqn2cxc_9q-unsplash.jpg
 summary: "Démocratie, politique, idéologies... Comment s'y retrouver. Préambule
@@ -16,25 +16,25 @@ Il y a quelques jours, je suis retombé sur le (vieux) test de [politicalcompass
 Dans un moment d'ennui, je l'ai donc repassé pour la n-ième fois.
 Puis j'ai partagé le résultat sur Twitter, sans y penser plus que ça.
 
-![Tweet de @n031d le 2 novembre 2022 : "Si des fois vous aviez encore des doutes 🤣 Je suis curieux de voir vos résultats 😁 politicalcompass.org/test/fr". Le tweet comprend une image avec le texte alternatif suivant : Résultat du test "Political Compas". Le political compas donne une représentation de l'alignement politique dans un carré découpé en deux axes : économique (Gauche à gauche contre Droite à droite) et social (Autoritaire en haut et Libertaire en bas). Ce qui donne 4 zones différentes. Je suis tout en bas à gauche du carré gauche libertaire, lui-même en bas à gauche. Axe économique : -9.5/10 (vers la gauche). Axe social: -8,56/10 (vers Libertaire).](/static/img/n031d-20221102-my-compass.png 'Tweet de n031d 2022-11-2 - politicalcompass')
+[![Tweet de @n031d le 2 novembre 2022 : "Si des fois vous aviez encore des doutes 🤣 Je suis curieux de voir vos résultats 😁 politicalcompass.org/test/fr". Le tweet comprend une image avec le texte alternatif suivant : Résultat du test "Political Compas". Le political compas donne une représentation de l'alignement politique dans un carré découpé en deux axes : économique (Gauche à gauche contre Droite à droite) et social (Autoritaire en haut et Libertaire en bas). Ce qui donne 4 zones différentes. Je suis tout en bas à gauche du carré gauche libertaire, lui-même en bas à gauche. Axe économique : -9.5/10 (vers la gauche). Axe social: -8,56/10 (vers Libertaire).](/static/img/n031d-20221102-my-compass.png 'Tweet de n031d 2022-11-2 - politicalcompass')](https://twitter.com/n031d/status/1587781071126536194)
 
-Comme mon compte est plein de gens cool, les discussions en commentaires étaient vraiment intéressantes.
+Comme mon compte est plein de gens bien et intelligents, les discussions en commentaires étaient vraiment intéressantes.
 J'ai appris pas mal de trucs.
-Mais je me suis également rendu compte qu'il y avait pas mal de sujets qui demanderaient à être approfondis.
+Mais je me suis également rendu compte que de nombreux sujets demanderaient à être approfondis.
 Approfondissements qui auraient difficilement leur place sur Twitter.
 
 J'ai donc commencé à écrire.
 Un article.
-Puis deux.
+Qui en est devenu deux.
 Puis trois...
 
-Finalement, je me lance donc dans une nouvelle série d'articles, qu'on va appeler _dé·polariser_.
+Finalement, je me lance donc dans une nouvelle série d'articles, qu'on va appeler _dé·polariser_ :tada:
 
 Introduction !
 
 ## Ma vie, mon œuvre, mes TOCs
 
-Il faut que je vous avoue un truc : j'aime la [taxonomie](https%3A%2F%2Ffr.wikipedia.org%2Fwiki%2FTaxonomie_%28homonymie%29) :heart:
+Il faut que je vous avoue un truc : j'aime la [taxonomie](https://fr.wikipedia.org/wiki/Taxonomie_%28homonymie%29) :heart:
 
 J'ai une fâcheuse tendance à vouloir analyser, décrire, classer et regrouper tous les trucs que j'apprends.
 Quand il s'agit de décrire le monde, et plus particulièrement la société humaine, je suis un obsessionnel de l'ordre et du rangement.

@@ -136,19 +136,17 @@ Une droite modérée, mais à la limite de l'extrême, à -2,8.
 Si on se place du point de vue de Julia, le progressisme de Georges passe de -1 à -5 pour le calcul de la moyenne.
 Georges, à -3,6 sur l'axe gauche-droite, est donc un gros facho pour Julia.
 
+<!-- prettier-ignore-start -->
 > **Encore des maths** (et du JavaScript)
 >
 > Voici la formule correspondante, où $t$ correspond au déplacement (5 dans l'exemple), et $x$ aux coordonnées d'un élément ($\{5;5;5;5;5\}$ pour la première ligne de l'exemple) :
 >
-> <!-- prettier-ignore -->
-> $$
- {gauche(x)=} \begin{cases}
+> $${gauche(x)=} \begin{cases}
     x_i-t_i \geq -5 & x_i' = -5 \\
     x_i-t_i \leq 5 & x_i' = 5 \\
     -5 < x_i-t_i < 5 & x_i' = x_i - t_i \\
     \frac{1}{n}\left (\sum_{i=1}^n(x_i')\right ) = \frac{x_1'+x_2'+\cdots +x_n'}{n}
-  \end{cases}
- $$
+  \end{cases}$$
 >
 > Mais ce sera sans doute plus clair en JavaScript pour pas mal de monde :
 >
@@ -166,6 +164,7 @@ Georges, à -3,6 sur l'axe gauche-droite, est donc un gros facho pour Julia.
 >
 > J'utilise ici $-t_i$ car je donne uniquement la dénomination "de gauche" de chaque axe sur ces graphs.
 > J'utilise donc un nombre positif pour indiquer un décalage "vers la gauche", qui donne une valeur moins élevée (et inversement pour un décalage "vers la droite").
+<!-- prettier-ignore-end -->
 
 Si Julia était au contraire de droite, considérant que tout discours progressiste relève de l'extrême-gauche, tout bascule.
 
@@ -190,11 +189,11 @@ Et je peux directement comprendre pourquoi cette personne pense qu'Emma est une 
 
 > **Exemple de référence**
 >
-> Le site de _Le Monde_ avait, pour l'élection présidentielle de 2022, fait une représentation similaire de chaque candidat sur 11 échelles.
+> Le site de _Le Monde_ avait, pour l'élection présidentielle de 2022, fait une représentation similaire de chaque candidat sur 12 échelles.
 > [L'article](https://www.lemonde.fr/les-decodeurs/article/2022/04/02/election-presidentielle-2022-en-un-coup-d-il-visualisez-les-grands-clivages-entre-les-candidats_6120316_4355770.html) est toujours disponible en ligne.
 >
 > Histoire de nous donner un point de référence pour la suite, voici sa représentation sur un graphique de coordonnées parallèle avec moyenne sur l'axe gauche-droite.
-> Je ne prends en compte ici que neuf dimensions, ignorant les axes qui me semblaient trop arbitraires ("VIe République"), ou ne correspondant pas à l'axe gauche-droite ("Multilatéralisme") :
+> Je ne prends en compte ici que neuf dimensions, ignorant les axes qui me semblaient trop arbitraires ("VIe République"), ou ne correspondant pas à l'axe gauche-droite ("Multilatéralisme" et "Europe") :
 >
 > <div id="lemonde-plot"></div>
 >

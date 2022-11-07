@@ -17,7 +17,7 @@ const defaultOptions = {
   axis: ['Progressisme', 'Démocratie', 'Ouverture', 'Interventionnisme', 'Liberté positive', 'Gauche'],
   avgKey: 'Gauche',
   colorScale: {
-    domain: ['A1', 'A2', 'B1', 'B2'],
+    domain: ['Julia', 'Emma', 'Georges', 'Gwendoline'],
     range: ['#F88', '#F70', '#88F', '#08F'],
   },
   axisTitleRotation: -25,

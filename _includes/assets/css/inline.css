@@ -370,3 +370,7 @@ fieldset.consent {
 eq .katex {
 	padding-inline: .3rem;
 }
+
+svg .legend {
+	font-size: .8em;
+}

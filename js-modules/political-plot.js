@@ -1,6 +1,7 @@
 import * as d3 from 'https://cdn.skypack.dev/d3@7';
 
 const defaultOptions = {
+  legend: false,
   dataURL: '/static/data/political-plot-demo1.csv',
   selector: '#plot-1',
   margin: {
@@ -8,12 +9,18 @@ const defaultOptions = {
     right: 50,
     bottom: 10,
     left: 50,
+    legend: 200
   },
   width: 760,
   height: 450,
   translations: {},
   axis: ['Progressisme', 'Démocratie', 'Ouverture', 'Interventionnisme', 'Liberté positive', 'Gauche'],
   avgKey: 'Gauche',
+  colorScale: {
+    domain: ['A1', 'A2', 'B1', 'B2'],
+    range: ['#F88', '#F70', '#88F', '#08F']
+  },
+  idKey: 'id'
 };
 
 const stretchMean = (data, axisNames, idx, translations) => {
@@ -29,6 +36,31 @@ const stretchMean = (data, axisNames, idx, translations) => {
     return sum + shiftedValue;
   }, 0) / dataAxisNames.length;
 };
+
+const highlight = (key, color) => (e, d) => {
+
+  const selectedColumn = d[key]
+
+  // first every group turns grey
+  d3.selectAll(".line")
+    .transition().duration(200)
+    .style("stroke", "lightgrey")
+    .style("opacity", "0.2")
+  // Second the hovered specie takes its color
+  d3.selectAll("." + selectedColumn)
+    .transition().duration(200)
+    .style("stroke", color(selectedColumn))
+    .style("opacity", "1")
+    .style("stroke-width", "8px")
+}
+
+const unHighlight = (key, color) => (e, d) => {
+  d3.selectAll(".line")
+    .transition().duration(200).delay(1000)
+    .style("stroke", (d) => color(d[key]))
+    .style("opacity", "1")
+    .style("stroke-width", "2px")
+}
 
 const pathFromCSVRow =
   (horizontalScalePoint, options, axis) =>
@@ -60,7 +92,7 @@ const pathFromCSVRow =
             }
           }
         }
-        console.log(value);
+
         return [horizontalScalePoint(axisName), axis[axisName](value)];
       })
     );
@@ -70,7 +102,8 @@ export async function drawPoliticalPlot(opts) {
   const options = { ...defaultOptions, ...opts };
   // set the dimensions and margins of the graph
   const contentWidth = options.width - options.margin.left - options.margin.right;
-  const contentHeight = options.height - options.margin.top - options.margin.bottom;
+  const innerWidth = options.legend ? contentWidth - options.margin.legend : contentWidth;
+  const innerHeight = options.height - options.margin.top - options.margin.bottom;
   const { margin, axis: axisNames } = options;
 
   // append the svg object to the body of the page
@@ -78,7 +111,9 @@ export async function drawPoliticalPlot(opts) {
     .select(options.selector)
     .append('svg')
     .attr('width', options.width)
-    .attr('height', options.height)
+    .attr('height', options.height);
+  
+  const innerSVG = svg
     .append('g')
     .attr('transform', `translate(${margin.left},${margin.top})`)
     .style('background', '#1b1e23')
@@ -88,14 +123,14 @@ export async function drawPoliticalPlot(opts) {
   const data = await d3.csv(options.dataURL);
 
   // Color scale: give me a specie name, I return a color
-  const color = d3.scaleOrdinal().domain(['A1', 'A2', 'B1', 'B2']).range(['#F88', '#F70', '#88F', '#08F']);
+  const color = d3.scaleOrdinal().domain(options.colorScale.domain).range(options.colorScale.range);
 
   // For each dimension, I build a linear scale. I store all in a y object
   const axis = axisNames.reduce((acc, columnName) => {
     const translation = Number(options.translations[columnName] || 0);
     const domain = translation > 0 ? [-5 + translation, 5] : [-5, 5 + translation];
-    const shiftedOrigin = (translation * contentHeight) / 10;
-    const range = translation > 0 ? [contentHeight, shiftedOrigin] : [contentHeight + shiftedOrigin, 0];
+    const shiftedOrigin = (translation * innerHeight) / 10;
+    const range = translation > 0 ? [innerHeight, shiftedOrigin] : [innerHeight + shiftedOrigin, 0];
     return {
       [columnName]: d3
         .scaleLinear()
@@ -107,21 +142,24 @@ export async function drawPoliticalPlot(opts) {
   }, {});
 
   // Build the X scale -> it find the best position for each Y axis
-  const horizontalScalePoint = d3.scalePoint().range([0, contentWidth]).domain(axisNames);
+  const horizontalScalePoint = d3.scalePoint().range([0, innerWidth]).domain(axisNames);
 
   // Draw the lines
-  svg
+  innerSVG
     .selectAll('myPath')
     .data(data)
     .join('path')
-    .attr('class', (d) => 'line ' + d.id) // 2 class for each line: 'line' and the group name
+    .attr('class', (d) => 'line ' + d[options.idKey]) // 2 class for each line: 'line' and the group name
     .attr('d', pathFromCSVRow(horizontalScalePoint, options, axis))
     .style('fill', 'none')
-    .style('stroke', (d) => color(d.id))
-    .style('opacity', 0.5);
+    .style('stroke', (d) => color(d[options.idKey]))
+    .style('stroke-width', "2px")
+    .style('opacity', 0.6)
+    .on("mouseover", highlight(options.idKey, color))
+    .on("mouseleave", unHighlight(options.idKey, color));
 
   // Draw the axis:
-  svg
+  innerSVG
     .selectAll('myAxis')
     // For each dimension of the dataset I add a 'g' element:
     .data(axisNames)
@@ -146,4 +184,35 @@ export async function drawPoliticalPlot(opts) {
     .attr('y', -9)
     .text((d) => d)
     .style('fill', 'white');
+
+  if (options.legend) {
+    // Add one dot in the legend for each name.
+    const legendSVG = svg.append('g')
+      .attr('class', 'legend')
+      .attr('transform', `translate(${options.width - options.margin.legend},${margin.top})`)
+      .style('background', "#FFF")
+    
+    legendSVG
+      .selectAll("mydots")
+      .data(data)
+      .enter()
+      .append("circle")
+      .attr("cx", 0)
+      .attr("cy", (d,i) => 100 + i*25) // 100 is where the first dot appears. 25 is the distance between dots
+      .attr("r", 7)
+      .style("fill", (d) => color(d[options.idKey]))
+    
+    // Add one dot in the legend for each name.
+    legendSVG
+      .selectAll("mylabels")
+      .data(data)
+      .enter()
+      .append("text")
+      .attr("x", 20)
+      .attr("y", (d,i) => 100 + i*25) // 100 is where the first dot appears. 25 is the distance between dots
+      .style("fill", (d) => color(d[options.idKey]))
+      .text((d) => d[options.idKey])
+      .attr("text-anchor", "left")
+      .style("alignment-baseline", "middle")
+  }
 }

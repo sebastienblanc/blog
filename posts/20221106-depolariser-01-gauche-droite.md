@@ -1,5 +1,5 @@
 ---
-title: "Gauche/Droite - dé·polariser #1"
+title: 'Gauche/Droite - dé·polariser #1'
 shorttitle: depolariser-01-gauche-droite
 date: 2022-11-06T18:01:25.109Z
 permalink: /posts/depolariser/01-gauche-droite.html
@@ -11,6 +11,7 @@ tags:
   - sciences politique
   - idéologies
 ---
+
 Pour démarrer notre exploration des idéologies politiques, pas le choix, on va devoir commencer par l'axe le plus utilisé : l'axe gauche/droite.
 
 Pas besoin de rentrer dans les détails de ce qui caractérise la gauche et la droite politique pour voir que ... ben c'est le sbeul quoi !
@@ -136,12 +137,14 @@ Georges, à -3,6 sur l'axe gauche/droite, est donc un gros facho pour Julia.
 >
 > Voici la formule correspondante, où $t$ correspond au déplacement (5 dans l'exemple), et $x$ aux coordonnées d'un élément ($\{5;5;5;5;5\}$ pour la première ligne de l'exemple) :
 >
-> $${gauche(x)=} \begin{cases}
-   x_i-t_i \geq -5 & x_i' = -5 \\
-   x_i-t_i \leq 5 & x_i' = 5 \\
-   -5 < x_i-t_i < 5 & x_i' = x_i - t_i \\
-   \frac{1}{n}\left (\sum_{i=1}^n(x_i')\right ) = \frac{x_1'+x_2'+\cdots +x_n'}{n}
- \end{cases}$$
+> $$
+> {gauche(x)=} \begin{cases}
+>    x_i-t_i \geq -5 & x_i' = -5 \\
+>    x_i-t_i \leq 5 & x_i' = 5 \\
+>    -5 < x_i-t_i < 5 & x_i' = x_i - t_i \\
+>    \frac{1}{n}\left (\sum_{i=1}^n(x_i')\right ) = \frac{x_1'+x_2'+\cdots +x_n'}{n}
+>  \end{cases}
+> $$
 >
 > Mais ce sera sans doute plus clair en JavaScript pour pas mal de monde :
 >
@@ -195,7 +198,7 @@ Pour se comprendre, débattre, avancer collectivement et maitriser enfin l'échi
 
 Et on ne peut le faire qu'en ayant une bonne connaissance des différents sujets (et donc, des échelles) en jeux.
 
-Dans le prochain épisode de _dé·polariser_, on s'attaquera justement à un autre concept politique dévoyé à l'extrême : la  **_Liberté_**.
+Dans le prochain épisode de _dé·polariser_, on s'attaquera justement à un autre concept politique dévoyé à l'extrême : la **_Liberté_**.
 Vaste programme.
 On parlera des libertariens, libertaire, libéraux, néolibéraux ... et même peut être des libristes (mais pas de libraires, désolé).
 
@@ -205,24 +208,28 @@ On parlera des libertariens, libertaire, libéraux, néolibéraux ... et même p
   drawPoliticalPlot({
     selector: "#base-plot",
     axis: ['Progressisme', 'Démocratie', 'Ouverture', 'Interventionnisme', 'Liberté positive'],
+    legend: true
   });
 
   drawPoliticalPlot({
     selector: "#unshifted-plot",
+    legend: true
   });
 
   drawPoliticalPlot({
     selector: "#shifted-plot-left",
     translations: {
       Progressisme: 5,
-    }
+    },
+    legend: true
   });
 
     drawPoliticalPlot({
     selector: "#shifted-plot-right",
     translations: {
       Progressisme: -5,
-    }
+    },
+    legend: true
   });
 
   drawPoliticalPlot({
@@ -233,7 +240,8 @@ On parlera des libertariens, libertaire, libéraux, néolibéraux ... et même p
       Ouverture: 3,
       Interventionnisme: 0,
       "Liberté positive": 3
-    }
+    },
+    legend: true
   });
 
   drawPoliticalPlot({
@@ -244,6 +252,7 @@ On parlera des libertariens, libertaire, libéraux, néolibéraux ... et même p
       Ouverture: -3,
       Interventionnisme: -3,
       "Liberté positive": 0
-    }
+    },
+    legend: true
   });
 </script>

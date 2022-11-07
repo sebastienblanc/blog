@@ -45,6 +45,7 @@
     skipPatterns = [
       "_site/js-modules/",
       "D_Article_39",
+      "politicalcompass.org"
     ]
 
     # You can mark some check as todo, which will execute the check, but allow failures.

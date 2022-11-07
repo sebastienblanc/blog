@@ -73,7 +73,7 @@ Alors soyons fous : prenons carrément cinq dimensions.
 On s'occupera des détails (définition, échelle, etc.) plus tard.
 Pour l'instant, on va juste placer quatre personnes sur ces axes, plus ou moins au pif, et représenter le tout dans un graphique de coordonnées parallèles.
 
-<div id="base-plot"></div>
+<div id="base-plot" class="plot-container"></div>
 
 ## Faire la synthèse
 
@@ -87,7 +87,7 @@ L'axe gauche/droite est donc, en quelque sorte, la synthèse de très nombreuses
 Si on reprend notre échiquier politique à 5 dimensions précédent, l'axe gauche droite peut y être représenté, mais comme une projection de toutes les autres dimensions.
 Il nous suffit de faire la moyenne des autres valeurs.
 
-<div id="unshifted-plot"></div>
+<div id="unshifted-plot" class="plot-container"></div>
 
 Et on va arbitrairement considérer que cette échelle est homogène, avec :
 
@@ -123,7 +123,7 @@ Prenons Julia, une personne de gauche pour qui le progressisme est primordial.
 Julia considère que tout ce qui est ne serait-ce qu'un tout petit peu réactionnaire devrait être rangé dans l'extrêmement droite.
 Pour représenter la vision de Julia, je peux donc décaler l'axe _progressisme_ de 5 points.
 
-<div id="shifted-plot-left"></div>
+<div id="shifted-plot-left" class="plot-container"></div>
 
 Prenons la troisième ligne en partant du haut sur ce graphique et appelons la "_Georges_".
 Georges, de base, est a priori de droite.
@@ -162,7 +162,7 @@ Georges, à -3,6 sur l'axe gauche/droite, est donc un gros facho pour Julia.
 
 Si Julia était au contraire de droite, considérant que tout discours progressiste relève de l'extrême-gauche, tout bascule.
 
-<div id="shifted-plot-right"></div>
+<div id="shifted-plot-right" class="plot-container"></div>
 
 Avec un progressisme considéré à 4 au lieu de -1, Georges est limite de centre droit (-1,8).
 
@@ -170,14 +170,14 @@ Avec un progressisme considéré à 4 au lieu de -1, Georges est limite de centr
 
 En associant des déclages sur plusieurs axes, on peut par exemple retrouver une vision d'un extrême-gauchiste tel que moi :
 
-<div id="my-plot"></div>
+<div id="my-plot" class="plot-container"></div>
 
 Notre "modéré de gauche" (on va l'appeler Emma) est maintenant une vrai centriste, et personne ne peut vraiment être classé à l'extrême-gauche.
 Ce qui décrit plutôt bien ma pensée (oui, je parodie un chouïa, mais pas tant que ça non plus pour être honnête).
 
 Mais si je devrait rencontrer mon exact opposé (un facho donc a priori), il me suffit de reprendre le même tableau avec des décalages différents.
 
-<div id="droite-plot"></div>
+<div id="droite-plot" class="plot-container"></div>
 
 Et je peux directement comprendre pourquoi cette personne me dit que Emma est une sale gauchiste d'ultra-gauche.
 

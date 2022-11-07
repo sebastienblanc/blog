@@ -175,8 +175,8 @@ const drawAxis = (svg, axis, horizontalScalePoint, options) => {
   return axisSVG;
 };
 
-const drawLines = (svg, axis, data, horizontalScalePoint, color, options) =>
-  svg
+const drawLines = (contentSVG, globalSvg, axis, data, horizontalScalePoint, color, options) =>
+  contentSVG
     .selectAll('myPath')
     .data(data)
     .join('path')
@@ -186,8 +186,8 @@ const drawLines = (svg, axis, data, horizontalScalePoint, color, options) =>
     .style('stroke', (d) => color(d[options.idKey]))
     .style('stroke-width', '2px')
     .style('opacity', 0.6)
-    .on('mouseover', highlight(svg, options.idKey, color))
-    .on('mouseleave', unHighlight(svg, options.idKey, color));
+    .on('mouseover', highlight(globalSvg, options.idKey, color))
+    .on('mouseleave', unHighlight(globalSvg, options.idKey, color));
 
 const drawLegend = (svg, data, color, options) => {
   // Add one dot in the legend for each name.
@@ -296,7 +296,7 @@ export async function drawPoliticalPlot(opts) {
 
   const axis = (options.axisTitles.main || options.axisTitles.top).reduce(reduceAxis(options), {});
 
-  drawLines(innerSVG, axis, data, horizontalScalePoint, color, options);
+  drawLines(innerSVG, svg, axis, data, horizontalScalePoint, color, options);
 
   drawAxis(innerSVG, axis, horizontalScalePoint, options);
 

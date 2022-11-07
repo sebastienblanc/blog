@@ -374,3 +374,7 @@ eq .katex {
 svg .legend {
 	font-size: .8em;
 }
+
+.plot-container {
+	text-align: center;
+}

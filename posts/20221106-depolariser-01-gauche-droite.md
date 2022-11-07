@@ -1,7 +1,6 @@
 ---
 title: 'Gauche/Droite - dé·polariser #1'
-shorttitle: depolariser-01-gauche-droite
-date: 2022-11-06T18:01:25.109Z
+date: 2022-11-08T12:00:00Z
 permalink: /posts/depolariser/01-gauche-droite.html
 image: /static/img/pablo-garcia-saldana-lpqindzz8mo-unsplash.jpg
 summary: Est-ce que être "de gauche" ou "de droite" veut encore dire
@@ -14,7 +13,7 @@ tags:
 
 > Ceci est le premier article de la série _[dé·polariser](/tags/dé·polariser)_.
 >
-> Rendez-vous sur l'article #0 pour une rapide introduction.
+> Rendez-vous sur l'[article #0](/posts/depolariser/00-intro.html) pour une rapide introduction.
 
 Pour démarrer notre exploration des idéologies politiques, pas le choix, on va devoir commencer par l'axe le plus utilisé : l'axe gauche/droite.
 

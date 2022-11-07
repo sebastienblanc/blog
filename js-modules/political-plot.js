@@ -58,37 +58,37 @@ const reduceAxis = (options) => (acc, columnName) => {
   };
 };
 
-const highlight = (key, color) => (e, d) => {
+const highlight = (svg, key, color) => (e, d) => {
   const selectedColumn = d[key];
 
   const targetOpacity = 0.2
-  d3.selectAll('.line').transition().duration(200).style('stroke', 'lightgrey').style('opacity', targetOpacity);
-  d3.selectAll('.legend__dot').transition().duration(200).style('fill', 'lightgrey').style('opacity', targetOpacity);
-  d3.selectAll('.legend__text').transition().duration(200).style('stroke', 'lightgrey').style('opacity', targetOpacity);
+  svg.selectAll('.line').transition().duration(200).style('stroke', 'lightgrey').style('opacity', targetOpacity);
+  svg.selectAll('.legend__dot').transition().duration(200).style('fill', 'lightgrey').style('opacity', targetOpacity);
+  svg.selectAll('.legend__text').transition().duration(200).style('stroke', 'lightgrey').style('opacity', targetOpacity);
 
-  d3.selectAll('.line.' + selectedColumn)
+  svg.selectAll('.line.' + selectedColumn)
     .transition()
     .duration(200)
     .style('stroke', color(selectedColumn))
     .style('opacity', '1')
     .style('stroke-width', '8px');
 
-  d3.selectAll('.legend__dot.' + selectedColumn)
+  svg.selectAll('.legend__dot.' + selectedColumn)
     .transition()
     .duration(200)
     .style('fill', color(selectedColumn))
     .style('opacity', '1')
 
-  d3.selectAll('.legend__text.' + selectedColumn)
+  svg.selectAll('.legend__text.' + selectedColumn)
     .transition()
     .duration(200)
     .style('stroke', color(selectedColumn))
     .style('opacity', '1')
 };
 
-const unHighlight = (key, color) => (e, d) => {
+const unHighlight = (svg, key, color) => (e, d) => {
   const delay = 800;
-  d3.selectAll('.line')
+  svg.selectAll('.line')
     .transition()
     .duration(200)
     .delay(delay)
@@ -96,14 +96,14 @@ const unHighlight = (key, color) => (e, d) => {
     .style('opacity', '1')
     .style('stroke-width', '2px');
 
-  d3.selectAll('.legend__dot')
+  svg.selectAll('.legend__dot')
     .transition()
     .duration(200)
     .delay(delay)
     .style('fill', (d) => color(d[key]))
     .style('opacity', '1')
 
-  d3.selectAll('.legend__text')
+  svg.selectAll('.legend__text')
     .transition()
     .duration(200)
     .delay(delay)
@@ -156,8 +156,8 @@ const drawLines = (svg, axis, data, horizontalScalePoint, color, options) =>
     .style('stroke', (d) => color(d[options.idKey]))
     .style('stroke-width', '2px')
     .style('opacity', 0.6)
-    .on('mouseover', highlight(options.idKey, color))
-    .on('mouseleave', unHighlight(options.idKey, color));
+    .on('mouseover', highlight(svg, options.idKey, color))
+    .on('mouseleave', unHighlight(svg, options.idKey, color));
 
 const drawLegend = (svg, data, color, options) => {
   // Add one dot in the legend for each name.
@@ -177,8 +177,8 @@ const drawLegend = (svg, data, color, options) => {
     .attr('r', 7)
     .attr('class', (d) => 'legend__dot ' + d[options.idKey]) // 2 class for each line: 'line' and the group name
     .style('fill', (d) => color(d[options.idKey]))
-    .on('mouseover', highlight(options.idKey, color))
-    .on('mouseleave', unHighlight(options.idKey, color));
+    .on('mouseover', highlight(svg, options.idKey, color))
+    .on('mouseleave', unHighlight(svg, options.idKey, color));
 
   // Add one dot in the legend for each name.
   legendSVG
@@ -193,8 +193,8 @@ const drawLegend = (svg, data, color, options) => {
     .text((d) => d[options.idKey])
     .attr('text-anchor', 'left')
     .style('alignment-baseline', 'middle')
-    .on('mouseover', highlight(options.idKey, color))
-    .on('mouseleave', unHighlight(options.idKey, color));
+    .on('mouseover', highlight(svg, options.idKey, color))
+    .on('mouseleave', unHighlight(svg, options.idKey, color));
 
   return legendSVG;
 };

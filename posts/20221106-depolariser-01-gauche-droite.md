@@ -12,6 +12,10 @@ tags:
   - idéologies
 ---
 
+> Ceci est le premier article de la série _[dé·polariser](/tags/dé·polariser)_.
+>
+> Rendez-vous sur l'article #0 pour une rapide introduction.
+
 Pour démarrer notre exploration des idéologies politiques, pas le choix, on va devoir commencer par l'axe le plus utilisé : l'axe gauche/droite.
 
 Pas besoin de rentrer dans les détails de ce qui caractérise la gauche et la droite politique pour voir que ... ben c'est le sbeul quoi !
@@ -116,19 +120,19 @@ Oui mais voila, il reste une dernière particularité à prendre en compte : **c
 
 Autrement dit, quand je lis un échiquier politique, j'aimerais bien que la représentation de l'axe gauche/droite corresponde à ma propre vision de cet axe.
 
-Pour ce faire, attention grosse surprise : je vais reprendre le graphique à coordonnées parallèle précédent.
+Pour ce faire, attention grosse surprise : je vais reprendre le graphique de coordonnées parallèle précédent.
 Et je vais déplacer chaque axe par rapport à ce qu'une personne considère être le centre de l'axe gauche-droite.
 À partir de là, il me suffira de prendre en compte ce décalage lors du calcul de la moyenne, et je devrais obtenir une représentation acceptable pour cette personne.
 
-Prenons Julia, une personne de gauche pour qui le progressisme est primordial.
+Prenons Julia, notre extrême-gauchiste de référence.
 Julia considère que tout ce qui est ne serait-ce qu'un tout petit peu réactionnaire devrait être rangé dans l'extrêmement droite.
 Pour représenter la vision de Julia, je peux donc décaler l'axe _progressisme_ de 5 points.
 
 <div id="shifted-plot-left" class="plot-container"></div>
 
-Prenons la troisième ligne en partant du haut sur ce graphique et appelons la "_Georges_".
+Maintenant, regardons Georges.
 Georges, de base, est a priori de droite.
-Une droite modérée mais à la limite de l'extrême, à -2,8.
+Une droite modérée, mais à la limite de l'extrême, à -2,8.
 
 Si on se place du point de vue de Julia, le progressisme de Georges passe de -1 à -5 pour le calcul de la moyenne.
 Georges, à -3,6 sur l'axe gauche/droite, est donc un gros facho pour Julia.
@@ -175,28 +179,44 @@ En associant des déclages sur plusieurs axes, on peut par exemple retrouver une
 
 <div id="my-plot" class="plot-container"></div>
 
-Notre "modéré de gauche" (on va l'appeler Emma) est maintenant une vrai centriste, et personne ne peut vraiment être classé à l'extrême-gauche.
+Personne ne peut vraiment être classé à l'extrême-gauche !
 Ce qui décrit plutôt bien ma pensée (oui, je parodie un chouïa, mais pas tant que ça non plus pour être honnête).
 
-Mais si je devrait rencontrer mon exact opposé (un facho donc a priori), il me suffit de reprendre le même tableau avec des décalages différents.
+Si je devais rencontrer mon exact opposé, il me suffit de reprendre le même tableau avec des décalages différents.
 
 <div id="droite-plot" class="plot-container"></div>
 
-Et je peux directement comprendre pourquoi cette personne me dit que Emma est une sale gauchiste d'ultra-gauche.
+Et je peux directement comprendre pourquoi cette personne pense qu'Emma est une dangereuse ultra-gauchiste, alors qu'à mes yeux, elle est plutôt mollassonne.
+
+> **Exemple de référence**
+>
+> Le site de _Le Monde_ avait, pour l'élection présidentielle de 2022, fait une représentation similaire de chaque candidat sur 12 échelles.
+> [L'article](https://www.lemonde.fr/les-decodeurs/article/2022/04/02/election-presidentielle-2022-en-un-coup-d-il-visualisez-les-grands-clivages-entre-les-candidats_6120316_4355770.html) est toujours disponible en ligne.
+>
+> Histoire de nous donner un point de référence pour la suite, voici sa représentation sur un graphique de coordonnées parallèle avec moyenne sur l'axe gauche-droite.
+> Je ne prends en compte ici que neuf dimensions, ignorant les axes qui me semblaient trop arbitraires ("VIe République"), ou ne correspondant pas à l'axe gauche-droite ("Multilatéralisme") :
+>
+> <div id="lemonde-plot"></div>
+>
+> L'analyse souffre de nombreux défauts, qui demanderaient des ajustements au-delà du simple décalage d'axe.
+> J'aurai sans doute l'occasion de revenir là-dessus dans le futur.
 
 Nous avons toutes et tous une vision très différentes de qui est de gauche ou de droite.
-De quelles opinions vont où.
+De la place qu'est censé occuper telle ou telle opinion.
 De ce qui est acceptable ou non en société.
 
-L'échelle gauche-droite est un excellent outil pour discuter la politique, situer chaque option qui nous est présentée, ainsi que nous même.
+L'échelle gauche-droite est un excellent outil pour discuter la politique.
+Elle est extrêmement utile pour situer chaque option qui nous est présentée, ainsi que nous même.
 Mais c'est aussi une échelle mouvante.
-Deux personnes peuvent parfaitement partager la même vision sur l'interventionnisme et la démocratie, par exemple, sans être vu "du même bord".
+Deux personnes peuvent parfaitement partager la même vision sur l'interventionnisme et la démocratie, par exemple, sans être considérés du "même bord".
 Un groupe en apparence homogène pourra militer pour un même programme pour des raisons très différentes sans même s'en apercevoir.
 L'échelle gauche-droite, mal employée, est source de polarisations et incompréhensions.
 
 Pour se comprendre, débattre, avancer collectivement et maitriser enfin l'échiquier politique, nous devons voir plus loin.
 
 Et on ne peut le faire qu'en ayant une bonne connaissance des différents sujets (et donc, des échelles) en jeux.
+
+## Dans le prochain épisode
 
 Dans le prochain épisode de _dé·polariser_, on s'attaquera justement à un autre concept politique dévoyé à l'extrême : la **_Liberté_**.
 Vaste programme.
@@ -205,34 +225,48 @@ On parlera des libertariens, libertaire, libéraux, néolibéraux ... et même p
 <script type="module">
   import {drawPoliticalPlot} from "/js-modules/political-plot.js";
 
+  const commonOptions = {
+    legend: true,
+    margin: {
+      top: 50,
+      right: 30,
+      bottom: 10,
+      left: 50,
+      legend: 105,
+    },
+    width: 840,
+    axisTitleRotation: 0,
+  }
+
   drawPoliticalPlot({
+    ...commonOptions,
     selector: "#base-plot",
     axis: ['Progressisme', 'Démocratie', 'Ouverture', 'Interventionnisme', 'Liberté positive'],
-    legend: true
   });
 
   drawPoliticalPlot({
+    ...commonOptions,
     selector: "#unshifted-plot",
-    legend: true
   });
 
   drawPoliticalPlot({
+    ...commonOptions,
     selector: "#shifted-plot-left",
     translations: {
       Progressisme: 5,
     },
-    legend: true
   });
 
-    drawPoliticalPlot({
+  drawPoliticalPlot({
+    ...commonOptions,
     selector: "#shifted-plot-right",
     translations: {
       Progressisme: -5,
     },
-    legend: true
   });
 
   drawPoliticalPlot({
+    ...commonOptions,
     selector: "#my-plot",
     translations: {
       Progressisme: 3,
@@ -241,10 +275,10 @@ On parlera des libertariens, libertaire, libéraux, néolibéraux ... et même p
       Interventionnisme: 0,
       "Liberté positive": 3
     },
-    legend: true
   });
 
   drawPoliticalPlot({
+    ...commonOptions,
     selector: "#droite-plot",
     translations: {
       Progressisme: -3,
@@ -253,6 +287,55 @@ On parlera des libertariens, libertaire, libéraux, néolibéraux ... et même p
       Interventionnisme: -3,
       "Liberté positive": 0
     },
-    legend: true
+  });
+
+  drawPoliticalPlot({
+    selector: "#lemonde-plot",
+    dataURL: "/static/data/echiquier-politique-2022-lemonde.csv",
+    axis: [
+      "Écologie", "Société", "Services Publics", "Droit du Travail", "Protection Sociale", "Interventionnisme", "Redistribution fiscale", "Multiculturalisme", "Immigration",
+      'GAUCHE'
+    ],
+    idKey: "NOM",
+    avgKey: 'GAUCHE',
+    colorScale: {
+      domain: [
+        "Arthaud",
+        "Poutou",
+        "Roussel",
+        "Mélenchon",
+        "Hidalgo",
+        "Jadot",
+        "Macron",
+        "Lassalle",
+        "Pécresse",
+        "Dupont-Aignan",
+        "Le-Pen",
+        "Zemmour"
+      ],
+      range: [
+        "#9D0D16",
+        "#CE2929",
+        "#F1001C",
+        "#FF3333",
+        "#FF668B",
+        "#23B73D",
+        "#FF9F0E",
+        "#617B75",
+        "#0890C5",
+        "#02279C",
+        "#8D6026",
+        "#654519"
+      ]
+    },
+    legend: true,
+    width: 880,
+    margin: {
+      top: 50,
+      right: 50,
+      bottom: 10,
+      left: 50,
+      legend: 125
+    }
   });
 </script>

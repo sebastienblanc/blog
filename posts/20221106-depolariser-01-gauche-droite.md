@@ -229,7 +229,7 @@ On parlera des libertariens, libertaire, libéraux, néolibéraux ... et même p
     margin: {
       top: 50,
       right: 30,
-      bottom: 10,
+      bottom: 50,
       left: 50,
       legend: 105,
     },
@@ -291,10 +291,42 @@ On parlera des libertariens, libertaire, libéraux, néolibéraux ... et même p
   drawPoliticalPlot({
     selector: "#lemonde-plot",
     dataURL: "/static/data/echiquier-politique-2022-lemonde.csv",
-    axis: [
-      "Écologie", "Société", "Services Publics", "Droit du Travail", "Protection Sociale", "Interventionnisme", "Redistribution fiscale", "Multiculturalisme", "Immigration",
-      'GAUCHE'
-    ],
+    axisTitles: {
+      main: [
+        "Environnement",
+        "Sujets de société",
+        "Services Publics",
+        "Droit du Travail",
+        "Protection Sociale",
+        "Politique économique",
+        "Fiscalité",
+        "Identité nationale",
+        "Immigration",
+      ],
+      top: [
+        "Plus d’écologie",
+        "Libéral",
+        "Plus d’État",
+        "Renforcer",
+        "Plus d’État",
+        "Interventionniste",
+        "Redistribuer",
+        "Multiculturel",
+        "Assouplir les lois",
+      ],
+      bottom: [
+        "Moins d’écologie",
+        "Conservateur",
+        "Moins d’État",
+        "Assouplir",
+        "Moins d’État",
+        "Libérale",
+        "L’alléger",
+        "Identitaire",
+        "Durcir les lois",
+        "France autonome",
+      ]
+    },
     idKey: "NOM",
     avgKey: 'GAUCHE',
     colorScale: {
@@ -328,13 +360,15 @@ On parlera des libertariens, libertaire, libéraux, néolibéraux ... et même p
       ]
     },
     legend: true,
-    width: 880,
+    height: 650,
+    width: 850,
     margin: {
-      top: 50,
+      top: 100,
       right: 50,
-      bottom: 10,
+      bottom: 100,
       left: 50,
       legend: 125
-    }
+    },
+    axisTitleRotation: 0,
   });
 </script>

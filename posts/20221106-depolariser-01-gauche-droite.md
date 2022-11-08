@@ -189,7 +189,7 @@ Et je peux directement comprendre pourquoi cette personne pense qu'Emma est une 
 
 > **Exemple de référence**
 >
-> Le site de _Le Monde_ avait, pour l'élection présidentielle de 2022, fait une représentation similaire de chaque candidat sur 12 échelles.
+> Le site de _Le Monde_ avait, pour l'élection présidentielle de 2022, fait une représentation similaire des programmes des candidat·e·s sur 12 échelles. [^1]
 > [L'article](https://www.lemonde.fr/les-decodeurs/article/2022/04/02/election-presidentielle-2022-en-un-coup-d-il-visualisez-les-grands-clivages-entre-les-candidats_6120316_4355770.html) est toujours disponible en ligne.
 >
 > Histoire de nous donner un point de référence pour la suite, voici sa représentation sur un graphique de coordonnées parallèle avec moyenne sur l'axe gauche-droite.
@@ -220,6 +220,8 @@ Et on ne peut le faire qu'en ayant une bonne connaissance des différents sujets
 Dans le prochain épisode de _dé·polariser_, on s'attaquera justement à un autre concept politique dévoyé à l'extrême : la **_Liberté_**.
 Vaste programme.
 On parlera des libertariens, libertaire, libéraux, néolibéraux ... et même peut être des libristes (mais pas de libraires, désolé).
+
+[^1]: Ce sont bien les _programmes_ et déclarations qui ont été comparées par Le Monde, tel quel. Un exemple, pour souligner le problème : Macron est à seulement -0.48 sur l'échelle "service publics" car il annonçait vouloir "recruter 50 000 infirmiers et aides-soignants supplémentaires en Ehpad". LOL
 
 <script type="module">
   import {drawPoliticalPlot} from "/js-modules/political-plot.js";
@@ -302,6 +304,7 @@ On parlera des libertariens, libertaire, libéraux, néolibéraux ... et même p
         "Fiscalité",
         "Identité nationale",
         "Immigration",
+        "MOYENNE"
       ],
       top: [
         "Plus d’écologie",
@@ -313,6 +316,7 @@ On parlera des libertariens, libertaire, libéraux, néolibéraux ... et même p
         "Redistribuer",
         "Multiculturel",
         "Assouplir les lois",
+        "Gauche"
       ],
       bottom: [
         "Moins d’écologie",
@@ -324,11 +328,11 @@ On parlera des libertariens, libertaire, libéraux, néolibéraux ... et même p
         "L’alléger",
         "Identitaire",
         "Durcir les lois",
-        "France autonome",
+        "Droite"
       ]
     },
     idKey: "NOM",
-    avgKey: 'GAUCHE',
+    avgKey: 'MOYENNE',
     colorScale: {
       domain: [
         "Arthaud",
@@ -369,6 +373,6 @@ On parlera des libertariens, libertaire, libéraux, néolibéraux ... et même p
       left: 50,
       legend: 125
     },
-    axisTitleRotation: 0,
+    axisTitleRotation: -10,
   });
 </script>

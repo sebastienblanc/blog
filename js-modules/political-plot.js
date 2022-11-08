@@ -7,14 +7,18 @@ const defaultOptions = {
   margin: {
     top: 50,
     right: 50,
-    bottom: 10,
+    bottom: 50,
     left: 50,
     legend: 200,
   },
   width: 760,
   height: 450,
   translations: {},
-  axis: ['Progressisme', 'Démocratie', 'Ouverture', 'Interventionnisme', 'Liberté positive', 'Gauche'],
+  axisTitles: {
+    top: ['Progressisme', 'Démocratie', 'Ouverture', 'Interventionnisme', 'Liberté positive', 'Gauche'],
+    bottom: ['Réaction', 'Autocratie', 'Fermeture', 'Néo-libéralisme', 'Ségregation', 'Gauche'],
+    main: false
+  },
   avgKey: 'Gauche',
   colorScale: {
     domain: ['Julia', 'Emma', 'Georges', 'Gwendoline'],
@@ -58,37 +62,37 @@ const reduceAxis = (options) => (acc, columnName) => {
   };
 };
 
-const highlight = (key, color) => (e, d) => {
+const highlight = (svg, key, color) => (e, d) => {
   const selectedColumn = d[key];
 
   const targetOpacity = 0.2
-  d3.selectAll('.line').transition().duration(200).style('stroke', 'lightgrey').style('opacity', targetOpacity);
-  d3.selectAll('.legend__dot').transition().duration(200).style('fill', 'lightgrey').style('opacity', targetOpacity);
-  d3.selectAll('.legend__text').transition().duration(200).style('stroke', 'lightgrey').style('opacity', targetOpacity);
+  svg.selectAll('.line').transition().duration(200).style('stroke', 'lightgrey').style('opacity', targetOpacity);
+  svg.selectAll('.legend__dot').transition().duration(200).style('fill', 'lightgrey').style('opacity', targetOpacity);
+  svg.selectAll('.legend__text').transition().duration(200).style('stroke', 'lightgrey').style('opacity', targetOpacity);
 
-  d3.selectAll('.line.' + selectedColumn)
+  svg.selectAll('.line.' + selectedColumn)
     .transition()
     .duration(200)
     .style('stroke', color(selectedColumn))
     .style('opacity', '1')
     .style('stroke-width', '8px');
 
-  d3.selectAll('.legend__dot.' + selectedColumn)
+  svg.selectAll('.legend__dot.' + selectedColumn)
     .transition()
     .duration(200)
     .style('fill', color(selectedColumn))
     .style('opacity', '1')
 
-  d3.selectAll('.legend__text.' + selectedColumn)
+  svg.selectAll('.legend__text.' + selectedColumn)
     .transition()
     .duration(200)
     .style('stroke', color(selectedColumn))
     .style('opacity', '1')
 };
 
-const unHighlight = (key, color) => (e, d) => {
+const unHighlight = (svg, key, color) => (e, d) => {
   const delay = 800;
-  d3.selectAll('.line')
+  svg.selectAll('.line')
     .transition()
     .duration(200)
     .delay(delay)
@@ -96,14 +100,14 @@ const unHighlight = (key, color) => (e, d) => {
     .style('opacity', '1')
     .style('stroke-width', '2px');
 
-  d3.selectAll('.legend__dot')
+  svg.selectAll('.legend__dot')
     .transition()
     .duration(200)
     .delay(delay)
     .style('fill', (d) => color(d[key]))
     .style('opacity', '1')
 
-  d3.selectAll('.legend__text')
+  svg.selectAll('.legend__text')
     .transition()
     .duration(200)
     .delay(delay)
@@ -116,7 +120,7 @@ const drawAxis = (svg, axis, horizontalScalePoint, options) => {
   const axisSVG = svg
     .selectAll('myAxis')
     // For each dimension of the dataset I add a 'g' element:
-    .data(options.axis)
+    .data(options.axisTitles.main || options.axisTitles.top)
     .enter()
     .append('g')
     .attr('class', 'axis')
@@ -133,20 +137,46 @@ const drawAxis = (svg, axis, horizontalScalePoint, options) => {
       d3.select(this).call(d3.axisLeft().ticks(ticksNbr).scale(axis[d]));
     });
 
-  axisSVG
-    // Add axis title
-    .append('text')
-    .attr('transform', `rotate(${options.axisTitleRotation}), translate(0, -10)`)
-    .style('text-anchor', 'middle')
-    .attr('y', -9)
-    .text((d) => d)
-    .style('fill', 'white');
+  if (options.axisTitles.bottom && options.axisTitles.bottom.length > 0) {
+    axisSVG
+      .append('text')
+      .data(options.axisTitles.bottom)
+      .attr('transform', `translate(0, ${options.height - options.margin.top - options.margin.bottom + 40}), rotate(${options.axisTitleRotation})`)
+      .style('text-anchor', 'middle')
+      .attr('y', -9)
+      .text((d) => d)
+      .style('fill', 'white');
+  }
+
+  if (options.axisTitles.main && options.axisTitles.main.length > 0) {
+    const translationY = (options.axisTitles.top && options.axisTitles.top.length > 0) ? -60 : -10
+    axisSVG
+      .append('text')
+      .data(options.axisTitles.main)
+      .attr('transform', (d,i) => `translate(0, ${translationY + i%2*20})`)
+      .style('text-anchor', 'middle')
+      .attr('y', -9)
+      .attr('font-weight', 'bold')
+      .text((d) => d)
+      .style('fill', 'white');
+  }
+
+  if (options.axisTitles.top && options.axisTitles.top.length > 0) {
+    axisSVG
+      .append('text')
+      .data(options.axisTitles.top)
+      .attr('transform', `translate(0, -10), rotate(${options.axisTitleRotation})`)
+      .style('text-anchor', 'middle')
+      .attr('y', -9)
+      .text((d) => d)
+      .style('fill', 'white');
+  }
 
   return axisSVG;
 };
 
-const drawLines = (svg, axis, data, horizontalScalePoint, color, options) =>
-  svg
+const drawLines = (contentSVG, globalSvg, axis, data, horizontalScalePoint, color, options) =>
+  contentSVG
     .selectAll('myPath')
     .data(data)
     .join('path')
@@ -156,15 +186,15 @@ const drawLines = (svg, axis, data, horizontalScalePoint, color, options) =>
     .style('stroke', (d) => color(d[options.idKey]))
     .style('stroke-width', '2px')
     .style('opacity', 0.6)
-    .on('mouseover', highlight(options.idKey, color))
-    .on('mouseleave', unHighlight(options.idKey, color));
+    .on('mouseover', highlight(globalSvg, options.idKey, color))
+    .on('mouseleave', unHighlight(globalSvg, options.idKey, color));
 
 const drawLegend = (svg, data, color, options) => {
   // Add one dot in the legend for each name.
   const legendSVG = svg
     .append('g')
     .attr('class', 'legend')
-    .attr('transform', `translate(${options.width - options.margin.legend},${options.margin.top})`)
+    .attr('transform', `translate(${options.width - options.margin.legend},0)`)
     .style('background', '#FFF');
 
   legendSVG
@@ -177,8 +207,8 @@ const drawLegend = (svg, data, color, options) => {
     .attr('r', 7)
     .attr('class', (d) => 'legend__dot ' + d[options.idKey]) // 2 class for each line: 'line' and the group name
     .style('fill', (d) => color(d[options.idKey]))
-    .on('mouseover', highlight(options.idKey, color))
-    .on('mouseleave', unHighlight(options.idKey, color));
+    .on('mouseover', highlight(svg, options.idKey, color))
+    .on('mouseleave', unHighlight(svg, options.idKey, color));
 
   // Add one dot in the legend for each name.
   legendSVG
@@ -193,8 +223,8 @@ const drawLegend = (svg, data, color, options) => {
     .text((d) => d[options.idKey])
     .attr('text-anchor', 'left')
     .style('alignment-baseline', 'middle')
-    .on('mouseover', highlight(options.idKey, color))
-    .on('mouseleave', unHighlight(options.idKey, color));
+    .on('mouseover', highlight(svg, options.idKey, color))
+    .on('mouseleave', unHighlight(svg, options.idKey, color));
 
   return legendSVG;
 };
@@ -207,10 +237,10 @@ const pathFromCSVRow =
    */
   (data) => {
     return d3.line()(
-      options.axis.map((axisName, idx) => {
+      (options.axisTitles.main || options.axisTitles.top).map((axisName, idx) => {
         let value;
         if (axisName === options.avgKey) {
-          value = stretchMean(data, options.axis, idx, options.translations);
+          value = stretchMean(data, (options.axisTitles.main || options.axisTitles.top), idx, options.translations);
         } else {
           const translation = Number(options.translations[axisName] || 0);
           const shiftedValue = Number(data[axisName]) + translation;
@@ -262,11 +292,11 @@ export async function drawPoliticalPlot(opts) {
   const color = d3.scaleOrdinal().domain(options.colorScale.domain).range(options.colorScale.range);
 
   // Build the X scale -> it find the best position for each Y axis
-  const horizontalScalePoint = d3.scalePoint().range([0, options._computed.innerWidth]).domain(options.axis);
+  const horizontalScalePoint = d3.scalePoint().range([0, options._computed.innerWidth]).domain(options.axisTitles.main || options.axisTitles.top);
 
-  const axis = options.axis.reduce(reduceAxis(options), {});
+  const axis = (options.axisTitles.main || options.axisTitles.top).reduce(reduceAxis(options), {});
 
-  drawLines(innerSVG, axis, data, horizontalScalePoint, color, options);
+  drawLines(innerSVG, svg, axis, data, horizontalScalePoint, color, options);
 
   drawAxis(innerSVG, axis, horizontalScalePoint, options);
 
